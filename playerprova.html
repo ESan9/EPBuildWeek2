@@ -1,0 +1,17 @@
+<div id="media-player">
+  <div class="player-controls">
+    <button id="prev-btn">⏮</button>
+    <button id="play-pause-btn">⏯</button>
+    <button id="next-btn">⏭</button>
+  </div>
+  <div class="progress-bar-container">
+    <span id="current-time">0:00</span>
+    <input type="range" id="progress-bar" value="0" min="0" max="100" />
+    <span id="duration">0:00</span>
+  </div>
+  <div class="volume-controls">
+    <button id="mute-btn">🔊</button>
+    <input type="range" id="volume-bar" value="100" min="0" max="100" />
+  </div>
+  <audio id="audio-source" src=""></audio>
+</div>
