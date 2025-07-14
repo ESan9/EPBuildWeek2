@@ -15,7 +15,7 @@
     <title>Album Spotify</title>
   </head>
   <body>
-    <div class="container fluid">
+    <div class="container">
       <div class="row">
         <!-- Sidebar sinistra -->
         <div class="col-3 sidebar-left p-3 d-none d-lg-inline fs-4">
@@ -65,7 +65,17 @@
         <!-- Contenuto principale -->
         <div class="col-12 col-md-12 col-lg-7 main-content p-4">
           <div
+            <<<<<<<
+            HEAD
             class="album-header d-flex align-items-center flex-column flex-lg-row mb-4">
+            ======= class="album-header d-flex align-items-center flex-column
+            flex-lg-row mb-4" >
+            <a href="./home.html"
+              ><i
+                class="bi bi-arrow-left text-light position-absolute d-inline d-lg-none"
+                id="left-arrow"></i
+            ></a>
+            >>>>>>> main
             <img
               src="./assets/imgs/main/image-1.jpg"
               alt="Album Cover"
@@ -74,7 +84,15 @@
             <div class="container d-flex flex-column mt-3">
               <p class="text-uppercase d-none d-lg-inline">Album</p>
               <h1>SATANA 2</h1>
-              <p>MAYHEM</p>
+              <div class="d-flex text-center">
+                <img
+                  src="./assets/imgs/main/image-11.jpg"
+                  alt="logoartista"
+                  class="rounded-5"
+                  width="20px"
+                  height="20px" />
+                <p class="mx-2">MAYHEM</p>
+              </div>
               <div class="col">
                 <span class="d-inline d-lg-none">ALBUM &#8226;</span>
                 <span>2017</span>
@@ -84,25 +102,26 @@
             </div>
           </div>
 
-          <div class="d-flex align-items-center mb-4 p-3 gap-4">
-            <a href="#"><i class="bi bi-heart text-light"></i></a>
-            <a href="#"><i class="bi bi-arrow-down-circle text-light"></i></a>
-            <a href="#"><i class="bi bi-three-dots-vertical text-light"></i></a>
-            <a href="#"><i class="bi bi-shuffle text-light"></i></a>
-            <a href="#"><i class="bi bi-play-circle-fill text-light"></i></a>
+          <div class="container d-flex justify-content-between mb-3 p-2 gap-4">
+            <div class="col-6 d-flex justify-content-around">
+              <a href="#"><i class="bi bi-heart text-light"></i></a>
+              <a href="#"><i class="bi bi-arrow-down-circle text-light"></i></a>
+              <a href="#"
+                ><i class="bi bi-three-dots-vertical text-light"></i
+              ></a>
+            </div>
+            <div class="col-6 d-flex justify-content-center gap-5">
+              <a href="#" class="text-info"
+                ><i class="bi bi-shuffle text-light"></i
+              ></a>
+              <a href="#" class="text-info"
+                ><i class="bi bi-play-circle-fill text-white" id="PlayBttn"></i
+              ></a>
+            </div>
           </div>
 
           <div class="container">
             <div class="row d-flex flex-column">
-              <div class="col d-flex">
-                <div class="col d-flex flex-column">
-                  <h5>Montanelli - Intro</h5>
-                  <p>POl</p>
-                </div>
-                <a href="#"
-                  ><i class="bi bi-three-dots-vertical text-light"></i
-                ></a>
-              </div>
               <div class="col d-flex">
                 <div class="col d-flex flex-column">
                   <h5>Montanelli - Intro</h5>
@@ -170,10 +189,25 @@
           </div>
         </div>
       </div>
+      <div class="col justify-content-center p-3 bg-dark p-2 rounded-3">
+        <div
+          class="player-bar d-flex align-items-center justify-content-between text-white">
+          <div class="d-flex align-items-center">
+            <span class="fw-bold me-2 text-truncate"
+              >Supernatural Parody by The Hillywo</span
+            >
+          </div>
+
+          <div class="d-flex align-items-center gap-4">
+            <i class="bi bi-speaker"></i> <i class="bi bi-heart"></i>
+            <i class="bi bi-play-circle-fill text-success fs-3"></i>
+          </div>
+        </div>
+      </div>
     </div>
     <nav
-      class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4">
-      <div class="container-fluid justify-content-around">
+      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-75 pb-0 d-lg-none">
+      <div class="container justify-content-around">
         <a class="nav-link text-center text-white" href="#"
           ><i class="bi bi-house-door"></i><br /><small>Home</small></a
         >
@@ -184,7 +218,7 @@
           ><i class="bi bi-music-note-list"></i><br /><small>Libreria</small></a
         >
       </div>
-      <div class="container-fluid justify-content-around p-4">
+      <div class="container justify-content-around p-4">
         <a class="nav-link text-center text-light" href="#"
           ><i class="bi bi-square-fill"></i><br
         /></a>
