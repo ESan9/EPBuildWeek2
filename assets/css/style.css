@@ -1,0 +1,17 @@
+#search-bar::placeholder {
+  color: rgb(107, 107, 107) !important;
+  opacity: 1 !important;
+}
+footer nav {
+  background: linear-gradient(to top,
+    rgba(0, 0, 0, 0.9) 60%, 
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+header input:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: aliceblue;
+}
