@@ -18,10 +18,10 @@ callTheTower(endpointFisso, query, id).then((data) => {
   nomeGruppo.innerText = data.artist.name;
 
   const anno = document.getElementById("anno");
-  anno.innerText = data.release_date.slice(0, 4);
+  anno.innerText = "• " + data.release_date.slice(0, 4);
 
   const ntrack = document.getElementById("ntrack");
-  ntrack.innerText = data.nb_tracks;
+  ntrack.innerText = "• " + data.nb_tracks + " " + "brani";
 
   const durata = document.getElementById("durata");
   //funzione per prendere tutte le data.tracks.data[i].duration e sommarle con reduce
