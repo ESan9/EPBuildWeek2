@@ -1,0 +1,86 @@
+#search-bar::placeholder {
+  color: rgb(107, 107, 107) !important;
+  opacity: 1 !important;
+}
+footer nav {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 60%,
+    rgba(0, 0, 0, 0.6) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+header input:focus {
+  box-shadow: none !important;
+  outline: none !important;
+  border-color: aliceblue;
+}
+#fav {
+  font-size: 20px;
+  padding: 9.5px 10px;
+  background: linear-gradient(135deg, #4b00ff, #98c9c4);
+  margin-right: 3px;
+  margin-left: -1px;
+}
+#podcasts {
+  font-size: 22px;
+  padding: 8.5px 10px;
+  background: #004537;
+  margin-right: 3px;
+  margin-left: -1px;
+}
+.titoli-playlist > p {
+  font-size: 12px;
+}
+.col .dropdown button {
+  background-color: black;
+}
+#carosello button {
+  background-color: #1b1b1b;
+}
+.overflow-auto::-webkit-scrollbar {
+  width: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+#carosello {
+  width: 40px;
+  height: 40px;
+}
+#random-container {
+  background: linear-gradient(215deg, #242424, #000000);
+}
+#random-container .album {
+  font-size: 15px ;
+}
+#hide-button {
+  font-size: 15px;
+}
+a:hover {
+opacity: 80%;
+}
+#more {
+  width: 200px !important;
+  height: 300px !important;
+}
+#random-title {
+  font-size: 4.5rem;
+ 
+}
+#random-phrase, #random-artist {
+  font-size: 2rem;
+}

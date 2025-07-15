@@ -1,8 +1,3 @@
-const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
-const query = "search?q=";
-const key = "metallica"; //input.value
-const obj = {};
-
 export const callTheTower = function (endpointFisso, query, key) {
   return fetch(endpointFisso + query + key)
     .then((response) => {
@@ -16,5 +11,3 @@ export const callTheTower = function (endpointFisso, query, key) {
     })
     .catch((error) => alert(error));
 };
-
-console.log(obj);
