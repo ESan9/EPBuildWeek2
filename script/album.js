@@ -71,3 +71,24 @@ const ciclaTrack = (array) => {
               </li>`;
   });
 };
+
+//ICONA CUORE PER AGG ad ArrayPrefe -> salva in local storage
+const iconHeart = document.getElementById("iconHeart");
+iconHeart.addEventListener("click", () => {
+  let preferitiAlbum = [];
+  if (localStorage.getItem("preferitiAlbum")) {
+    preferitiAlbum = JSON.parse(localStorage.getItem("preferitiAlbum"));
+  }
+  const albumPrefe = preferitiAlbum.includes(id);
+
+  if (albumPrefe) {
+    preferitiAlbum = preferitiAlbum.filter((albumId) => albumId !== id);
+    iconHeart.classList.remove("bi-heart-fill");
+    iconHeart.classList.add("bi-heart");
+  } else {
+    preferitiAlbum.push(id);
+    iconHeart.classList.remove("bi-heart");
+    iconHeart.classList.add("bi-heart-fill");
+  }
+  localStorage.setItem("preferitiAlbum", JSON.stringify(preferitiAlbum));
+});
