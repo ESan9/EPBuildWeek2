@@ -41,12 +41,48 @@ const contaMin = (array) => {
 
 const ciclaTrack = (array) => {
   array.forEach((element) => {
-    trackContainer.innerHTML += ` <li class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h5 class="mb-0">${element.title_short}</h5>
-                  <small class="text-muted">${element.artist.name}</small>
+    trackContainer.innerHTML += ` <li
+                class="d-flex justify-content-between align-items-center py-2 px-3"
+              >
+                <div class="d-flex align-items-center gap-3" style="width: 60%">
+                  <span class="track-number text-light d-none d-lg-block"
+                    >1</span
+                  >
+                  <div>
+                    <h5 class="mb-0 text-white">${element.title_short}</h5>
+                    <small class="text-white-50"
+                      >${element.artist.name}</small
+                    >
+                  </div>
                 </div>
-                <i class="bi bi-three-dots-vertical text-light"></i>
+
+                <div class="d-flex align-items-center" style="width: 40%">
+                  <div
+                    class="d-flex w-100 justify-content-between d-none d-lg-flex"
+                  >
+                    <small class="text-white-50 track-plays">${element.rank}</small>
+                    <small class="text-white-50 track-duration">${element.duration}</small>
+                  </div>
+
+                  <i
+                    class="bi bi-three-dots-vertical text-light d-lg-none ms-auto"
+                  ></i>
+                </div>
               </li>`;
   });
 };
+
+//ICONA CUORE PER AGG ad ArrayPrefe -> salva in local storage
+const iconHeart = document.getElementById("iconHeart");
+iconHeart.addEventListener("click", () => {
+  //prendi array da LS se non  c'è crealo e postalo su LS
+  if (localStorage.getItem("preferiti")) {
+    const preferiti = localStorage.getItem("preferiti");
+    preferiti.push(id);
+  } else {
+    const preferiti = localStorage.setItem("preferiti");
+    preferiti.push(id);
+  }
+  //prendi id e pushalo nell array
+  //jsonifica l array e impostalo in LS
+});
