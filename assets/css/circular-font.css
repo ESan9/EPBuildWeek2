@@ -64,3 +64,47 @@
   font-weight: 900;
   font-style: italic;
 }
+
+body {
+  font-family: "Circular", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #000;
+  color: white;
+}
+
+body {
+  background-color: #121212;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #c79c2d 0%,
+    #c79c2d 30%,
+    #121212 70%,
+    #121212 100%
+  );
+}
+
+.sidebar-left {
+  background-color: #000;
+}
+
+.sidebar-right {
+  background-color: #000;
+  border-left: 1px solid #2a2a2a;
+}
+
+.album-header h1 {
+  font-weight: bold;
+}
+
+#left-arrow {
+  left: 30px;
+  font-size: 1.5em;
+}
+
+.bi {
+  font-size: 1.5em;
+}
