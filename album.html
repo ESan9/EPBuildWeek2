@@ -23,7 +23,10 @@
     <div class="container-fluid">
       <div class="row">
         <!-- Sidebar sinistra -->
-        <aside class="col-3 sidebar-left p-3 d-none d-lg-block fs-5">
+        <aside
+          class="col-3 sidebar-left p-3 d-none d-lg-block fs-5"
+          style="height: 100vh"
+        >
           <a href="#"><i class="bi bi-three-dots text-light"></i></a>
           <ul class="list-unstyled">
             <li>
@@ -68,9 +71,9 @@
         </aside>
 
         <!-- Contenuto principale -->
-        <main class="col-12 col-lg-7 p-1">
+        <main class="col-12 col-lg-7">
           <header
-            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4"
+            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4 p-lg-2"
           >
             <a
               href="./home.html"
@@ -108,8 +111,16 @@
             </div>
           </header>
 
-          <div class="d-flex justify-content-between mb-3 p-2 gap-4">
-            <div class="d-flex gap-4">
+          <div
+            class="d-flex justify-content-between align-items-center mb-3 p-2 p-lg-4 gap-4"
+          >
+            <div class="d-flex gap-4 h-100 align-items-center">
+              <a href="#"
+                ><i
+                  class="bi bi-play-circle-fill text-white fs-3 d-none d-lg-block"
+                  id="PlayBttn"
+                ></i
+              ></a>
               <a href="#"
                 ><i id="iconHeart" class="bi bi-heart text-light"></i
               ></a>
@@ -119,10 +130,10 @@
               ></a>
             </div>
             <div class="d-flex justify-content-center align-items-center gap-4">
-              <a href="#"><i class="bi bi-shuffle text-light"></i></a>
+              <a href="#"><i class="bi bi-shuffle text-light d-lg-none"></i></a>
               <a href="#"
                 ><i
-                  class="bi bi-play-circle-fill text-white fs-3"
+                  class="bi bi-play-circle-fill text-white fs-3 d-lg-none"
                   id="PlayBttn"
                 ></i
               ></a>
@@ -133,7 +144,7 @@
 
           <section class="track-list-content">
             <div
-              class="track-list-header justify-content-between align-items-center py-2 px-3 text-muted d-none d-lg-flex"
+              class="track-list-header justify-content-between align-items-center py-2 px-3 p-lg-3 text-muted d-none d-lg-flex"
             >
               <div
                 class="d-flex align-items-center gap-3 text-light"
