@@ -18,7 +18,8 @@
   </head>
   <body class="bg-black bg-gradient min-vh-100 mx-4 mt-5 mx-md-0 my-md-0">
     <header>
-      <nav class="navbar bg-black d-none fixed-top" id="search-bar">
+      <!--SearchBar-->
+      <nav class="navbar bg-black d-none fixed-top">
         <div class="container-fluid">
           <a href="#" class="navbar-brand mb-0 h1">
             <i class="bi bi-spotify text-light fs-1"></i
@@ -36,11 +37,13 @@
                 class="form-control border-0 rounded-end-pill text-white-50 px-5 py-2"
                 placeholder="Cerca la tua musica..."
                 style="background-color: #212121"
+                id="searchBar"
               />
             </div>
           </form>
         </div>
       </nav>
+      <!--SearchBar-->
       <div
         class="welcome d-flex d-lg-none align-items-center justify-content-between"
       >
@@ -255,8 +258,7 @@
                   <img
                     src="https://placehold.co/400"
                     alt=""
-                    style="width: 300px"
-                    class="mt-2 rounded-2"
+                    class="mt-2 rounded-2 img-fluid"
                   />
                 </div>
                 <div class="col-7">
@@ -479,27 +481,23 @@
           </div>
         </div>
         <div class="col-2">
-          <div
-            class="offcanvas offcanvas-end show bg-black
-            tabindex="-1"
-            id="offcanvas"
-            aria-labelledby="offcanvasLabel"
-          >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title text-white mt-4" id="offcanvasLabel">Attività amici</h5>
-              <button class="btn"><i class="bi bi-people"></i>
-              </button>
-              <button
-                type="button"
-                class="btn-close text-bg-white"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="offcanvas-body">
-              Content for the offcanvas goes here. You can place just about any
-              Bootstrap component or custom elements here.
-            </div>
+          <div class="offcanvas offcanvas-end show bg-black tabindex="-1"
+          id="offcanvas" aria-labelledby="offcanvasLabel" >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-white mt-4" id="offcanvasLabel">
+              Attività amici
+            </h5>
+            <button class="btn"><i class="bi bi-people"></i></button>
+            <button
+              type="button"
+              class="btn-close text-bg-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            Content for the offcanvas goes here. You can place just about any
+            Bootstrap component or custom elements here.
           </div>
         </div>
       </div>
