@@ -1,0 +1,13 @@
+html, body {
+  height: auto;
+  overflow-y: auto;
+}
+
+.container-fluid {
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.row {
+  flex-wrap: wrap !important; 
+}
