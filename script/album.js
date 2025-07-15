@@ -98,3 +98,24 @@ iconHeart.addEventListener("click", () => {
   }
   localStorage.setItem("preferitiAlbum", JSON.stringify(preferitiAlbum));
 });
+
+//per cercare anche da qui
+const input = document.getElementById("searchBar");
+const searchForm = document.getElementById("searchForm");
+
+//questo serve per cercare, chiamare API e recuperare id per spostarlo su Artist html
+const endpointFisso2 = "https://striveschool-api.herokuapp.com/api/deezer/";
+const query2 = "search?q=";
+let id2 = "";
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  callTheTower(endpointFisso2, query2, input.value).then((data) => {
+    id2 = data.data[0].artist.id;
+    cerca(id2);
+  });
+});
+
+//funzione Vai a Cercati
+const cerca = function (id2) {
+  window.location.href = `./artist.html?eventId=${id2}`;
+};
