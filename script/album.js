@@ -28,11 +28,25 @@ callTheTower(endpointFisso, query, id).then((data) => {
   durata.innerText = Math.ceil(contaMin(data.tracks.data) / 60) + ` min`;
 
   //   tracks
-  //   data.tracks.data[i]
+  //   data.tracks.data[i] funzione per ciclare le track
+  const trackContainer = document.getElementById("trackContainer");
+  ciclaTrack(data.tracks.data);
 });
 
 const contaMin = (array) => {
   return array
     .map((element) => element.duration)
     .reduce((acc, num) => acc + num, 0);
+};
+
+const ciclaTrack = (array) => {
+  array.forEach((element) => {
+    trackContainer.innerHTML += ` <li class="d-flex justify-content-between align-items-center">
+                <div>
+                  <h5 class="mb-0">${element.title_short}</h5>
+                  <small class="text-muted">${element.artist.name}</small>
+                </div>
+                <i class="bi bi-three-dots-vertical text-light"></i>
+              </li>`;
+  });
 };
