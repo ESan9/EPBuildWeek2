@@ -41,6 +41,10 @@ const contaMin = (array) => {
 
 const ciclaTrack = (array) => {
   array.forEach((element, index) => {
+    const minutes = Math.floor(element.duration / 60);
+    const seconds = element.duration % 60;
+    // Giusto per avere anche lo zero altrimenti è brutto lo spazio TERNARIO POWER
+    const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
     trackContainer.innerHTML += ` <li
                 class="d-flex justify-content-between align-items-center py-2 px-3"
               >
@@ -63,9 +67,7 @@ const ciclaTrack = (array) => {
                     <small class="text-white-50 track-plays">${
                       element.rank
                     }</small>
-                    <small class="text-white-50 track-duration">${
-                      element.duration
-                    }</small>
+                    <small class="text-white-50 track-duration">${minutes}:${formattedSeconds}</small>
                   </div>
 
                   <i
