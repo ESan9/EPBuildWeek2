@@ -182,3 +182,8 @@ ol,
 ul {
   padding-left: 0rem;
 }
+
+#footerPlayer {
+  margin-right: 0.1rem;
+  margin-left: 0.1rem;
+}
