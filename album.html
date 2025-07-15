@@ -9,12 +9,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous" />
-    <link href="./assets/css/circular-font.css" rel="stylesheet" />
+      crossorigin="anonymous"
+    />
+
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-    <title>Album Spotify</title>
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link href="./assets/css/circular-font.css" rel="stylesheet" />
   </head>
 
   <body class="bg-black text-white">
@@ -22,10 +24,10 @@
       <div class="row">
         <!-- Sidebar sinistra -->
         <aside class="col-3 sidebar-left p-3 d-none d-lg-block fs-5">
-          <h5 class="mb-4">Spotify</h5>
+          <a href="#"><i class="bi bi-three-dots text-light"></i></a>
           <ul class="list-unstyled">
-            <li class="mb-2">
-              <a id="home" href="#" class="text-white text-decoration-none"
+            <li>
+              <a href="./home.html" class="text-white text-decoration-none"
                 ><i class="bi bi-house-door"></i> Home</a
               >
             </li>
@@ -66,14 +68,16 @@
         </aside>
 
         <!-- Contenuto principale -->
-        <div class="col-12 col-md-12 col-lg-7 main-content p-4">
-          <div
-            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4">
-            <a href="./home.html"
-              ><i
-                class="bi bi-arrow-left text-light position-absolute d-inline d-lg-none"
-                id="left-arrow"></i
-            ></a>
+        <main class="col-12 col-lg-7 p-1">
+          <header
+            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4"
+          >
+            <a
+              href="./home.html"
+              class="d-lg-none position-absolute start-0 ms-3"
+            >
+              <i class="bi bi-arrow-left text-light fs-4" id="left-arrow"></i>
+            </a>
 
             <img
               src="./assets/imgs/main/image-1.jpg"
@@ -83,33 +87,38 @@
             <div class="container d-flex flex-column mt-3">
               <p class="text-uppercase d-none d-lg-inline">Album</p>
               <h1 id="album">SATANA 2</h1>
-              <div class="d-flex text-center">
-                <img
-                  src="./assets/imgs/main/image-11.jpg"
-                  alt="logoartista"
-                  class="rounded-5"
-                  width="20px"
-                  height="20px" />
-                <p id="nomeGruppo" class="mx-2">MAYHEM</p>
+              <div class="d-lg-flex align-items-center gap-2 flex-wrap">
+                <div class="d-flex align-items-center mt-1 mt-lg-0">
+                  <img
+                    src="./assets/imgs/main/image-11.jpg"
+                    alt="Logo artista MAYHEM"
+                    class="rounded-5 me-2"
+                    width="20"
+                    height="20"
+                  />
+                  <p class="mb-0" id="nomeGruppo">MAYHEM</p>
+                </div>
+                <div class="mt-1 mt-lg-0">
+                  <span class="d-inline d-lg-none">ALBUM </span>
+                  <span id="anno">2017</span>
+                </div>
+                <span class="d-none d-lg-block" id="ntrack">12 brani • </span>
+                <span class="d-none d-lg-block" id="durata">53 min 20 sec</span>
               </div>
-              <div class="mt-1">
-                <span class="d-inline d-lg-none">ALBUM &#8226;</span>
-                <span id="anno">2017</span>
-              </div>
-              <span id="ntrack" class="d-none d-lg-inline">12 brani</span>
-              <span id="durata" class="d-none d-lg-inline">53 min 20 sec</span>
             </div>
           </header>
 
           <div class="d-flex justify-content-between mb-3 p-2 gap-4">
             <div class="d-flex gap-4">
-              <a href="#"><i class="bi bi-heart text-light"></i></a>
+              <a href="#"
+                ><i id="iconHeart" class="bi bi-heart text-light"></i
+              ></a>
               <a href="#"><i class="bi bi-arrow-down-circle text-light"></i></a>
               <a href="#"
                 ><i class="bi bi-three-dots-vertical text-light"></i
               ></a>
             </div>
-            <div class="d-flex justify-content-center gap-4">
+            <div class="d-flex justify-content-center align-items-center gap-4">
               <a href="#"><i class="bi bi-shuffle text-light"></i></a>
               <a href="#"
                 ><i
@@ -121,33 +130,35 @@
           </div>
 
           <!-- Lista brani -->
-          <section class="track-list">
-            <div class="d-flex flex-column gap-3">
-              <!-- Usa questo blocco per ogni brano -->
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h5 class="mb-0">Montanelli - Intro</h5>
-                  <small class="text-muted">POl</small>
-                </div>
-                <i class="bi bi-three-dots-vertical text-light"></i>
-              </div>
 
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h5 class="mb-0">Tempesta Notturna</h5>
-                  <small class="text-muted">POl</small>
-                </div>
-                <i class="bi bi-three-dots-vertical text-light"></i>
+          <section class="track-list-content">
+            <div
+              class="track-list-header justify-content-between align-items-center py-2 px-3 text-muted d-none d-lg-flex"
+            >
+              <div
+                class="d-flex align-items-center gap-3 text-light"
+                style="width: 60%"
+              >
+                <span class="track-header-number text-light">#</span>
+                <span class="track-header-title text-light">TITOLO</span>
               </div>
-
-              <div class="d-flex justify-content-between align-items-center">
-                <div>
-                  <h5 class="mb-0">Nebbia Rossa</h5>
-                  <small class="text-muted">POl</small>
-                </div>
-                <i class="bi bi-three-dots-vertical text-light"></i>
+              <div
+                class="d-flex align-items-center gap-3 justify-content-between"
+                style="width: 40%"
+              >
+                <span class="track-header-plays text-light">RIPRODUZIONI</span>
+                <span class="track-header-duration"
+                  ><i class="bi bi-stopwatch text-light"></i
+                ></span>
               </div>
             </div>
+            <hr class="d-none d-lg-block" />
+
+            <ul
+              id="trackContainer"
+              class="d-flex flex-column gap-3 overflow-auto"
+              style="max-height: 300px"
+            ></ul>
           </section>
         </main>
 
@@ -188,7 +199,7 @@
           </div>
 
       <!-- Player mobile tablet -->
-      <footer class="row mt-4 d-inline d-lg-none">
+      <footer class="row mt-4 d-block d-lg-none" id="footerPlayer">
         <div class="col-12 p-3 bg-dark rounded-3">
           <div
             class="player-bar d-flex align-items-center justify-content-between text-white"
@@ -208,7 +219,8 @@
 
     <!-- Navbar mobile -->
     <nav
-      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-75 pb-0 d-lg-none">
+      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-60 p-2 pb-0 d-lg-none"
+    >
       <div class="container justify-content-around">
         <a class="nav-link text-center text-white" href="#"
           ><i class="bi bi-house-door"></i><br /><small>Home</small></a
@@ -236,7 +248,8 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./script/album.js"></script>
   </body>
 </html>

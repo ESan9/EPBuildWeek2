@@ -18,22 +18,81 @@ callTheTower(endpointFisso, query, id).then((data) => {
   nomeGruppo.innerText = data.artist.name;
 
   const anno = document.getElementById("anno");
-  anno.innerText = data.release_date.slice(0, 4);
+  anno.innerText = "• " + data.release_date.slice(0, 4);
 
   const ntrack = document.getElementById("ntrack");
-  ntrack.innerText = data.nb_tracks;
+  ntrack.innerText = "• " + data.nb_tracks + " " + "brani";
 
   const durata = document.getElementById("durata");
   //funzione per prendere tutte le data.tracks.data[i].duration e sommarle con reduce
+  durata.innerText = Math.ceil(contaMin(data.tracks.data) / 60) + ` min`;
 
   //   tracks
-  //   data.tracks.data[i]
+  //   data.tracks.data[i] funzione per ciclare le track
+  const trackContainer = document.getElementById("trackContainer");
+  ciclaTrack(data.tracks.data);
 });
 
-// const contaMin = (array)=> {
-//     const newArray = []
-//     array.forEach(element => {
-//         newArray.push(element.duration)
-//     });
-//     newArray.reduce((acc, num) => acc + num)
-// }
+const contaMin = (array) => {
+  return array
+    .map((element) => element.duration)
+    .reduce((acc, num) => acc + num, 0);
+};
+
+const ciclaTrack = (array) => {
+  array.forEach((element, index) => {
+    trackContainer.innerHTML += ` <li
+                class="d-flex justify-content-between align-items-center py-2 px-3"
+              >
+                <div class="d-flex align-items-center gap-3" style="width: 60%">
+                  <span class="track-number text-light d-none d-lg-block"
+                    >${index + 1}</span
+                  >
+                  <div>
+                    <h5 class="mb-0 text-white">${element.title_short}</h5>
+                    <small class="text-white-50"
+                      >${element.artist.name}</small
+                    >
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center" style="width: 40%">
+                  <div
+                    class="d-flex w-100 justify-content-between d-none d-lg-flex"
+                  >
+                    <small class="text-white-50 track-plays">${
+                      element.rank
+                    }</small>
+                    <small class="text-white-50 track-duration">${
+                      element.duration
+                    }</small>
+                  </div>
+
+                  <i
+                    class="bi bi-three-dots-vertical text-light d-lg-none ms-auto"
+                  ></i>
+                </div>
+              </li>`;
+  });
+};
+
+//ICONA CUORE PER AGG ad ArrayPrefe -> salva in local storage
+const iconHeart = document.getElementById("iconHeart");
+iconHeart.addEventListener("click", () => {
+  let preferitiAlbum = [];
+  if (localStorage.getItem("preferitiAlbum")) {
+    preferitiAlbum = JSON.parse(localStorage.getItem("preferitiAlbum"));
+  }
+  const albumPrefe = preferitiAlbum.includes(id);
+
+  if (albumPrefe) {
+    preferitiAlbum = preferitiAlbum.filter((albumId) => albumId !== id);
+    iconHeart.classList.remove("bi-heart-fill");
+    iconHeart.classList.add("bi-heart");
+  } else {
+    preferitiAlbum.push(id);
+    iconHeart.classList.remove("bi-heart");
+    iconHeart.classList.add("bi-heart-fill");
+  }
+  localStorage.setItem("preferitiAlbum", JSON.stringify(preferitiAlbum));
+});
