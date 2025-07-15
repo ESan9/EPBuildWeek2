@@ -15,6 +15,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
     <link href="./assets/css/circular-font.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   </head>
 
   <body class="bg-black text-white">
@@ -71,6 +74,7 @@
             <section class="position-relative text-white" style="height: 400px">
               <!-- Sfondo immagine -->
               <div
+                id="imgContainer"
                 class="position-absolute top-0 start-0 w-100 h-100"
                 style="
                   background-image: url('https://www.metalhammer.it/wp-content/uploads/2016/09/metallica1-1200x675.jpg');
@@ -89,7 +93,7 @@
                     verificato
                   </p>
                   <h1 id="title" class="display-4 fw-bold">Metallica</h1>
-                  <p class="fs-5">999.999.999 ascoltatori mensili</p>
+                  <p id="nbFan" class="fs-5">999.999.999 ascoltatori mensili</p>
                 </div>
               </div>
             </section>
@@ -114,147 +118,10 @@
 
           <div class="container d-lg-flex justify-content-lg-between flex-wrap">
             <!-- Brani Popolari -->
-            <div class="row col-12 col-lg-6">
+            <div id="sectionTrack" class="row col-12 col-lg-6 w-100">
               <h3 class="m-4 p-2">Popolari</h3>
 
-              <div
-                class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img
-                      src="https://place.dog/125/125"
-                      alt="dog"
-                      width="60"
-                      height="60"
-                      class="rounded" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-              <!--fine card-->
-
-              <div
-                class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img
-                      src="https://place.dog/125/125"
-                      alt="dog"
-                      width="60"
-                      height="60"
-                      class="rounded" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-              <!--fine card-->
-
-              <div
-                class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img
-                      src="https://place.dog/125/125"
-                      alt="dog"
-                      width="60"
-                      height="60"
-                      class="rounded" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-              <!--fine card-->
-
-              <div
-                class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img
-                      src="https://place.dog/125/125"
-                      alt="dog"
-                      width="60"
-                      height="60"
-                      class="rounded" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-              <!--fine card-->
-
-              <div
-                class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img
-                      src="https://place.dog/125/125"
-                      alt="dog"
-                      width="60"
-                      height="60"
-                      class="rounded" />
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-              <!--fine card-->
-            </div>
-
-            <!-- Brani che ti piacciono -->
-            <div class="row col-12 col-lg-6 mb-4">
-              <div class="d-flex align-items-start">
-                <img
-                  class="rounded-circle w-25"
-                  src="https://place.dog/100/100"
-                  alt="dog" />
-                <div class="d-flex flex-column ms-3">
-                  <h5 class="mb-1">Brani che ti piacciono</h5>
-                  <p class="fs-6 mb-0">8 brani di Metallica</p>
-                </div>
-              </div>
+              <!-- si inseriscono qui le canzoni -->
             </div>
           </div>
         </main>
@@ -336,6 +203,6 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"></script>
-    <script type="module" src="./script/album.js"></script>
+    <script type="module" src="./script/artist.js"></script>
   </body>
 </html>
