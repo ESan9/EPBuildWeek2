@@ -8,28 +8,25 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="bg-black bg-gradient min-vh-100 mx-4 mt-5 mx-md-0 my-md-0">
     <header>
       <!--SearchBar-->
-      <nav class="navbar bg-black d-none fixed-top">
+      <nav id="searchNav" class="navbar bg-black d-none fixed-top">
         <div class="container-fluid">
           <a href="#" class="navbar-brand mb-0 h1">
             <i class="bi bi-spotify text-light fs-1"></i
           ></a>
-          <form class="d-flex m-auto">
+          <form id="searchForm" class="d-flex m-auto">
             <div class="input-group h-50 align-items-center">
               <span
                 class="input-group-text border-0 rounded-start-pill py-2"
-                style="background-color: #212121"
-              >
+                style="background-color: #212121">
                 <i class="bi bi-search text-white-50" id="search-btn"></i>
               </span>
               <input
@@ -37,17 +34,15 @@
                 class="form-control border-0 rounded-end-pill text-white-50 px-5 py-2"
                 placeholder="Cerca la tua musica..."
                 style="background-color: #212121"
-                id="searchBar"
-              />
+                id="searchBar" />
             </div>
           </form>
         </div>
       </nav>
       <!--SearchBar-->
       <div
-        class="welcome d-flex d-lg-none align-items-center justify-content-between"
-      >
-        <h1 class="text-light">Buonasera</h1>
+        class="welcome d-flex d-lg-none align-items-center justify-content-between">
+        <h1 class="text-light">Ciao</h1>
         <div>
           <a href="#"><i class="bi bi-bell text-light fs-2 ms-3"></i></a>
           <a href="#"
@@ -70,8 +65,7 @@
                 src="./assets/imgs/liked-songs-300.jpg"
                 style="width: 70px"
                 alt=""
-                class="rounded-start-2"
-              />
+                class="rounded-start-2" />
             </div>
             <div class="col col-5 ps-5 ps-md-1">
               <h4 class="text-white fs-5">Brani che ti piacciono</h4>
@@ -95,7 +89,7 @@
               ><i class="bi bi-house-door fs-1 fw-bold"></i
               ><small class="ps-2 fs-2 fw-bold">Home</small></a
             >
-            <a class="nav-link text-white" href="#"
+            <a id="btnSearch" class="nav-link text-white" href="#"
               ><i class="bi bi-search fs-1 fw-bold"></i
               ><small class="ps-2 fs-2 fw-bold">Cerca</small></a
             >
@@ -110,8 +104,7 @@
             <a class="nav-link text-white mt-2" href="#"
               ><i
                 class="bi bi-heart-fill text-white-50 rounded-1 fw-bold"
-                id="fav"
-              ></i
+                id="fav"></i
               ><small class="ps-1 fs-2 fw-bold"
                 >Brani che ti piacciono</small
               ></a
@@ -119,15 +112,13 @@
             <a class="nav-link text-white mt-3" href="#"
               ><i
                 class="bi bi-bookmark-fill text-success rounded-1 fw-bold"
-                id="podcasts"
-              ></i
+                id="podcasts"></i
               ><small class="ps-1 fs-2 fw-bold">I tuoi episodi</small></a
             >
             <hr class="text-white" />
             <div
               class="titoli-playlist overflow-auto"
-              style="max-height: 100vh"
-            >
+              style="max-height: 100vh">
               <p class="text-white m-1 fs-4">Festa italiana 2116</p>
               <p class="text-white m-1 fs-4">Viaggio con i boys</p>
               <p class="text-white m-1 fs-4">Mykonos</p>
@@ -212,8 +203,7 @@
           </div>
           <div
             class="col-7 px-5 overflow-auto parte-centrale"
-            style="max-height: 100vh"
-          >
+            style="max-height: 100vh">
             <div class="row mt-5">
               <div class="col d-flex justify-content-between">
                 <div class="d-flex gap-4" id="carosello">
@@ -229,13 +219,11 @@
                     class="btn btn-secondary dropdown-toggle rounded-pill border-0"
                     type="button"
                     data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
+                    aria-expanded="false">
                     <img
                       src="./assets/imgs/1.png"
                       alt="icon"
-                      style="width: 45px"
-                    />
+                      style="width: 45px" />
                     <span>Jason Ball</span>
                   </button>
                   <ul class="dropdown-menu bg-transparent border-0">
@@ -258,8 +246,7 @@
                   <img
                     src="https://placehold.co/400"
                     alt=""
-                    class="mt-2 rounded-2 img-fluid"
-                  />
+                    class="mt-2 rounded-2 img-fluid" />
                 </div>
                 <div class="col-7">
                   <p class="text-white fw-bold album">ALBUM</p>
@@ -270,13 +257,11 @@
                   <p id="random-phrase" class="text-white mb-1">vbjkxvbs</p>
                   <div class="d-flex gap-3">
                     <button
-                      class="btn fs-4 fw-bold text-black px-4 py-2 mt-3 rounded-pill bg-success"
-                    >
+                      class="btn fs-4 fw-bold text-black px-4 py-2 mt-3 rounded-pill bg-success">
                       Play
                     </button>
                     <button
-                      class="btn fs-4 fw-bold text-white px-4 py-2 mt-3 rounded-pill border-1 border-white"
-                    >
+                      class="btn fs-4 fw-bold text-white px-4 py-2 mt-3 rounded-pill border-1 border-white">
                       Salva
                     </button>
                   </div>
@@ -284,8 +269,7 @@
                 <div class="col-2">
                   <button
                     class="bg-transparent border-0 text-white-50"
-                    id="hide-button"
-                  >
+                    id="hide-button">
                     NASCONDI ANNUNCI
                   </button>
                 </div>
@@ -294,90 +278,78 @@
             <h3 class="text-white mt-3 ms-1">Buonasera</h3>
             <div class="row ms-1">
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
                 </div>
               </div>
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
                 </div>
               </div>
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
                 </div>
               </div>
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
                 </div>
               </div>
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
                 </div>
               </div>
               <div
-                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2"
-              >
+                class="col-3 bg-dark rounded d-flex align-items-center me-3 pe-2 ps-0 mt-2">
                 <div class="me-3">
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2"
-                  />
+                    class="rounded-start-2" />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold">Brani che ti piacciono</h5>
@@ -388,90 +360,75 @@
             <div class="row gap-4">
               <h3 class="text-white my-4">Altro di ciò che ti piace</h3>
               <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2"
-              >
+                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
                 <div
                   class="card border-0 bg-transparent w-75 mt-2"
                   id="more"
-                  style="width: 18rem"
-                >
+                  style="width: 18rem">
                   <img
                     src="./assets/imgs/search/image-14.jpg"
                     class="card-img-top"
-                    alt="..."
-                  />
+                    alt="..." />
                   <div class="card-body">
                     <h5 class="card-title text-white">Top Songs Global</h5>
                   </div>
                 </div>
               </div>
               <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2"
-              >
+                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
                 <div
                   class="card border-0 bg-transparent w-75 mt-2"
                   id="more"
-                  style="width: 18rem"
-                >
+                  style="width: 18rem">
                   <img
                     src="./assets/imgs/search/image-14.jpg"
                     class="card-img-top"
-                    alt="..."
-                  />
+                    alt="..." />
                   <div class="card-body">
                     <h5 class="card-title text-white">Top Songs Global</h5>
                   </div>
                 </div>
               </div>
               <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2"
-              >
+                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
                 <div
                   class="card border-0 bg-transparent w-75 mt-2"
                   id="more"
-                  style="width: 18rem"
-                >
+                  style="width: 18rem">
                   <img
                     src="./assets/imgs/search/image-14.jpg"
                     class="card-img-top"
-                    alt="..."
-                  />
+                    alt="..." />
                   <div class="card-body">
                     <h5 class="card-title text-white">Top Songs Global</h5>
                   </div>
                 </div>
               </div>
               <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2"
-              >
+                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
                 <div
                   class="card border-0 bg-transparent w-75 mt-2"
                   id="more"
-                  style="width: 18rem"
-                >
+                  style="width: 18rem">
                   <img
                     src="./assets/imgs/search/image-14.jpg"
                     class="card-img-top"
-                    alt="..."
-                  />
+                    alt="..." />
                   <div class="card-body">
                     <h5 class="card-title text-white">Top Songs Global</h5>
                   </div>
                 </div>
               </div>
               <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2"
-              >
+                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
                 <div
                   class="card border-0 bg-transparent w-75 mt-2"
                   id="more"
-                  style="width: 18rem"
-                >
+                  style="width: 18rem">
                   <img
                     src="./assets/imgs/search/image-14.jpg"
                     class="card-img-top"
-                    alt="..."
-                  />
+                    alt="..." />
                   <div class="card-body">
                     <h5 class="card-title text-white">Top Songs Global</h5>
                   </div>
@@ -492,8 +449,7 @@
               type="button"
               class="btn-close text-bg-white"
               data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
+              aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
             Content for the offcanvas goes here. You can place just about any
@@ -511,8 +467,7 @@
                 <img
                   src="https://placehold.co/400"
                   style="width: 200px"
-                  alt=""
-                />
+                  alt="" />
               </div>
               <div class="col col-5">
                 <p class="text-white">Playlist</p>
@@ -541,8 +496,7 @@
     </main>
     <footer>
       <nav
-        class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4"
-      >
+        class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4">
         <div class="container-fluid justify-content-around">
           <a class="nav-link text-center text-white" href="#"
             ><i class="bi bi-house-door"></i><br /><small>Home</small></a
@@ -572,7 +526,7 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <script type="module" src="./script/home.js"></script>
   </body>
 </html>
