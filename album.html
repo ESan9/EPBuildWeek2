@@ -72,8 +72,75 @@
 
         <!-- Contenuto principale -->
         <main class="col-12 col-lg-7">
+          <nav
+            class="d-flex align-items-center justify-content-between p-3 sticky-top"
+            style="z-index: 1000"
+          >
+            <div class="d-none d-lg-flex gap-3">
+              <button class="btn btn-dark rounded-circle">
+                <i class="bi bi-chevron-left text-white fs-5"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle">
+                <i class="bi bi-chevron-right text-white fs-5"></i>
+              </button>
+            </div>
+            <!-- Cerca -->
+            <div class="input-group w-25 d-none d-lg-flex">
+              <input
+                type="text"
+                class="form-control rounded-pill bg-white text-dark ps-3"
+                placeholder="Cerca"
+                aria-label="Cerca"
+              />
+            </div>
+
+            <div class="d-none d-lg-flex align-items-center gap-3">
+              <div class="dropdown d-none d-lg-block">
+                <button
+                  class="btn btn-dark dropdown-toggle rounded-pill"
+                  type="button"
+                  id="dropdownUserMenu"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="./assets/imgs/1.png"
+                    alt="User Avatar"
+                    class="rounded-circle me-2"
+                    width="30"
+                    height="30"
+                  />
+                  <span class="fw-bold">Jason Bon</span>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="dropdownUserMenu"
+                >
+                  <li>
+                    <a class="dropdown-item" href="#">Account</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Profilo</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+              <button
+                class="btn btn-dark d-none d-lg-block"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <i class="bi bi-person-circle text-white fs-5"></i>
+              </button>
+            </div>
+          </nav>
           <header
-            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4 p-lg-2"
+            class="album-header d-flex align-items-center flex-column flex-lg-row mb-2 p-lg-2"
           >
             <a
               href="./home.html"
@@ -86,8 +153,9 @@
               src="./assets/imgs/main/image-1.jpg"
               alt="Copertina album SATANA 2"
               class="img-fluid"
-              style="width: 180px" />
-            <div class="container d-flex flex-column mt-3">
+              style="width: 180px"
+            />
+            <div class="container d-flex flex-column mt-2">
               <p class="text-uppercase d-none d-lg-inline">Album</p>
               <h1 id="album">SATANA 2</h1>
               <div class="d-lg-flex align-items-center gap-2 flex-wrap">
@@ -129,7 +197,9 @@
                 ><i class="bi bi-three-dots-vertical text-light"></i
               ></a>
             </div>
-            <div class="d-flex justify-content-center align-items-center gap-4">
+            <div
+              class="d-flex justify-content-center align-items-center gap-4 me-2"
+            >
               <a href="#"><i class="bi bi-shuffle text-light d-lg-none"></i></a>
               <a href="#"
                 ><i
@@ -174,40 +244,50 @@
         </main>
 
         <!-- Sidebar destra -->
-        <aside class="col-2 sidebar-right p-3 d-none d-lg-block">
-          <h6 class="text-light">Attività amici</h6>
-          <div class="mt-3 small">
-            <p>
-              <strong>Anna</strong><br /><small
-                >Amante di ossa • 4 ore fa</small
-              >
-            </p>
-            <p>
-              <strong>Andrea</strong><br /><small
-                >Coccolando gatti • 8 ore fa</small
-              >
-            </p>
-            <p>
-              <strong>Jason</strong><br /><small
-                >Cercando una nuova vittima • 3 giorni fa</small
-              >
-            </p>
-            <p>
-              <strong>Amin</strong><br /><small
-                >Sta arrivando • 3 giorni fa</small
-              >
-            </p>
-          </div>
-        </aside>
-      </div>
-      <div class="col justify-content-center p-3 bg-dark p-2 rounded-3">
         <div
-          class="player-bar d-flex align-items-center justify-content-between text-white">
-          <div class="d-flex align-items-center">
-            <span class="fw-bold me-2 text-truncate"
-              >Supernatural Parody by The Hillywo</span
-            >
+          class="offcanvas offcanvas-end bg-dark text-white d-none d-lg-block"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+          style="width: 250px"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">
+              Attività amici
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
+          <div class="offcanvas-body">
+            <div class="small">
+              <p>
+                <strong>Anna</strong><br /><small
+                  >Amante di ossa • 4 ore fa</small
+                >
+              </p>
+              <p>
+                <strong>Andrea</strong><br /><small
+                  >Coccolando gatti • 8 ore fa</small
+                >
+              </p>
+              <p>
+                <strong>Jason</strong><br /><small
+                  >Cercando una nuova vittima • 3 giorni fa</small
+                >
+              </p>
+              <p>
+                <strong>Amin</strong><br /><small
+                  >Sta arrivando • 3 giorni fa</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Player mobile tablet -->
       <footer class="row mt-4 d-block d-lg-none" id="footerPlayer">
