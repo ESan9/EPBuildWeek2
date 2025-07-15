@@ -25,40 +25,78 @@
         <!-- Sidebar sinistra -->
         <aside
           class="col-3 sidebar-left p-3 d-none d-lg-block fs-5"
-          style="height: 100vh"
+          style="height: 100vh; background-color: black; color: white"
         >
-          <a href="#"><i class="bi bi-three-dots text-light"></i></a>
+          <a href="#"><i class="bi bi-three-dots text-light fs-4"></i></a>
           <ul class="list-unstyled">
-            <li>
-              <a href="./home.html" class="text-white text-decoration-none"
-                ><i class="bi bi-house-door"></i> Home</a
+            <li class="mb-3">
+              <a
+                href="./home.html"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3">
+                  <i class="bi bi-house-door"></i>
+                </span>
+                Home
+              </a>
             </li>
-
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-music-note-list"></i> La tua libreria</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3">
+                  <i class="bi bi-search"></i>
+                </span>
+                Cerca
+              </a>
             </li>
-            <li class="mt-3">
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-plus-square-fill"></i> Crea playlist</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3">
+                  <i class="bi bi-collection-fill"></i>
+                </span>
+                La tua libreria
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-heart-fill" id="favSong"></i> Brani che ti
-                piacciono</a
+            <li class="mt-4 mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3">
+                  <i class="bi bi-plus-square-fill"></i>
+                </span>
+                Crea playlist
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-bookmark-fill" id="episode"></i> I tuoi
-                episodi</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block icon-wrapper-fav me-3">
+                  <i class="bi bi-heart-fill" style="color: white"></i>
+                </span>
+                Brani che ti piacciono
+              </a>
+            </li>
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
+              >
+                <span class="icon-block icon-wrapper-podcasts me-3">
+                  <i class="bi bi-bookmark-fill" style="color: white"></i>
+                </span>
+                I tuoi episodi
+              </a>
             </li>
           </ul>
-          <hr />
+          <hr class="text-white-50" />
           <div id="playlist">
             <p class="small text-white-50">Playlist 1</p>
             <p class="small text-white-50">Playlist 2</p>

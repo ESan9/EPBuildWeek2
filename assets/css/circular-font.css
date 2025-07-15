@@ -187,3 +187,28 @@ ul {
   margin-right: 0.1rem;
   margin-left: 0.1rem;
 }
+
+.icon-block {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wrapper dell'icona "Brani che ti piacciono" */
+.icon-wrapper-fav {
+  background: linear-gradient(135deg, #4b00ff, #98c9c4);
+  border-radius: 4px;
+}
+
+/* Wrapper dell'icona "I tuoi episodi" */
+.icon-wrapper-podcasts {
+  background: #004537;
+  border-radius: 4px;
+}
+
+/* Assicurati che le icone stesse siano della giusta dimensione all'interno dei blocchi */
+.icon-block i {
+  font-size: 1.3rem;
+}
