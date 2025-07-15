@@ -40,13 +40,13 @@ const contaMin = (array) => {
 };
 
 const ciclaTrack = (array) => {
-  array.forEach((element) => {
+  array.forEach((element, index) => {
     trackContainer.innerHTML += ` <li
                 class="d-flex justify-content-between align-items-center py-2 px-3"
               >
                 <div class="d-flex align-items-center gap-3" style="width: 60%">
                   <span class="track-number text-light d-none d-lg-block"
-                    >1</span
+                    >${index + 1}</span
                   >
                   <div>
                     <h5 class="mb-0 text-white">${element.title_short}</h5>
@@ -60,8 +60,12 @@ const ciclaTrack = (array) => {
                   <div
                     class="d-flex w-100 justify-content-between d-none d-lg-flex"
                   >
-                    <small class="text-white-50 track-plays">${element.rank}</small>
-                    <small class="text-white-50 track-duration">${element.duration}</small>
+                    <small class="text-white-50 track-plays">${
+                      element.rank
+                    }</small>
+                    <small class="text-white-50 track-duration">${
+                      element.duration
+                    }</small>
                   </div>
 
                   <i
