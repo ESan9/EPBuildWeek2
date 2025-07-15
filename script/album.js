@@ -71,18 +71,3 @@ const ciclaTrack = (array) => {
               </li>`;
   });
 };
-
-//ICONA CUORE PER AGG ad ArrayPrefe -> salva in local storage
-const iconHeart = document.getElementById("iconHeart");
-iconHeart.addEventListener("click", () => {
-  //prendi array da LS se non  c'è crealo e postalo su LS
-  if (localStorage.getItem("preferiti")) {
-    const preferiti = localStorage.getItem("preferiti");
-    preferiti.push(id);
-  } else {
-    const preferiti = localStorage.setItem("preferiti");
-    preferiti.push(id);
-  }
-  //prendi id e pushalo nell array
-  //jsonifica l array e impostalo in LS
-});
