@@ -111,3 +111,74 @@ body {
 aside {
   height: 100vh;
 }
+
+.sidebar-left {
+  height: calc(100vh - 56px);
+  overflow-y: auto;
+  background-color: #000;
+  background: linear-gradient(to bottom, #4a3818, #000000 80%);
+  position: sticky;
+  top: 0;
+}
+
+/* Ho dovuto aggiungerla comunque */
+
+@media (min-width: 992px) {
+  .sidebar-left::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  .sidebar-left::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+  }
+
+  .sidebar-left::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  .sidebar-left::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.5
+    ); /* Più visibile al passaggio del mouse */
+  }
+
+  .sidebar-left::-webkit-scrollbar-button {
+    display: none; /* Nasconde i pulsanti su e giù */
+  }
+
+  /* Stili per la Scrollbar di #trackContainer (la nascondo di default su sm/md) */
+  #trackContainer::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  #trackContainer::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    background-color: transparent;
+  }
+
+  #trackContainer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+
+  #trackContainer::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  #trackContainer::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
+/* Ho aggiunto questo per mettere apposto il numero */
+ol,
+ul {
+  padding-left: 0rem;
+}
