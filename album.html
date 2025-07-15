@@ -9,13 +9,12 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous" />
     <link href="./assets/css/circular-font.css" rel="stylesheet" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <title>Album Spotify</title>
   </head>
 
   <body class="bg-black text-white">
@@ -25,13 +24,13 @@
         <aside class="col-3 sidebar-left p-3 d-none d-lg-block fs-5">
           <h5 class="mb-4">Spotify</h5>
           <ul class="list-unstyled">
-            <li>
-              <a href="#" class="text-white text-decoration-none"
+            <li class="mb-2">
+              <a id="home" href="#" class="text-white text-decoration-none"
                 ><i class="bi bi-house-door"></i> Home</a
               >
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
+            <li class="mb-2">
+              <a id="search" href="#" class="text-white text-decoration-none"
                 ><i class="bi bi-search"></i> Cerca</a
               >
             </li>
@@ -67,40 +66,38 @@
         </aside>
 
         <!-- Contenuto principale -->
-        <main class="col-12 col-lg-7 p-4">
-          <header
-            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4"
-          >
-            <a
-              href="./home.html"
-              class="d-lg-none position-absolute start-0 ms-3"
-            >
-              <i class="bi bi-arrow-left text-light fs-4" id="left-arrow"></i>
-            </a>
+        <div class="col-12 col-md-12 col-lg-7 main-content p-4">
+          <div
+            class="album-header d-flex align-items-center flex-column flex-lg-row mb-4">
+            <a href="./home.html"
+              ><i
+                class="bi bi-arrow-left text-light position-absolute d-inline d-lg-none"
+                id="left-arrow"></i
+            ></a>
+
             <img
               src="./assets/imgs/main/image-1.jpg"
               alt="Copertina album SATANA 2"
               class="img-fluid"
-              style="width: 180px"
-            />
-            <div class="ms-lg-4 mt-3">
-              <p class="text-uppercase d-none d-lg-block small">Album</p>
-              <h1>SATANA 2</h1>
-              <div class="d-flex align-items-center mt-1">
+              style="width: 180px" />
+            <div class="container d-flex flex-column mt-3">
+              <p class="text-uppercase d-none d-lg-inline">Album</p>
+              <h1 id="album">SATANA 2</h1>
+              <div class="d-flex text-center">
                 <img
                   src="./assets/imgs/main/image-11.jpg"
-                  alt="Logo artista MAYHEM"
-                  class="rounded-5 me-2"
-                  width="20"
-                  height="20"
-                />
-                <p class="mb-0">MAYHEM</p>
+                  alt="logoartista"
+                  class="rounded-5"
+                  width="20px"
+                  height="20px" />
+                <p id="nomeGruppo" class="mx-2">MAYHEM</p>
               </div>
               <div class="mt-1">
                 <span class="d-inline d-lg-none">ALBUM &#8226;</span>
-                <span>2017</span>
+                <span id="anno">2017</span>
               </div>
-              <span class="d-none d-lg-inline">12 brani • 53 min 20 sec</span>
+              <span id="ntrack" class="d-none d-lg-inline">12 brani</span>
+              <span id="durata" class="d-none d-lg-inline">53 min 20 sec</span>
             </div>
           </header>
 
@@ -126,7 +123,7 @@
           <!-- Lista brani -->
           <section class="track-list">
             <div class="d-flex flex-column gap-3">
-              <!-- Ripeti questi blocchi per ogni brano -->
+              <!-- Usa questo blocco per ogni brano -->
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <h5 class="mb-0">Montanelli - Intro</h5>
@@ -181,9 +178,17 @@
           </div>
         </aside>
       </div>
+      <div class="col justify-content-center p-3 bg-dark p-2 rounded-3">
+        <div
+          class="player-bar d-flex align-items-center justify-content-between text-white">
+          <div class="d-flex align-items-center">
+            <span class="fw-bold me-2 text-truncate"
+              >Supernatural Parody by The Hillywo</span
+            >
+          </div>
 
-      <!-- Player -->
-      <footer class="row mt-4">
+      <!-- Player mobile tablet -->
+      <footer class="row mt-4 d-inline d-lg-none">
         <div class="col-12 p-3 bg-dark rounded-3">
           <div
             class="player-bar d-flex align-items-center justify-content-between text-white"
@@ -203,8 +208,7 @@
 
     <!-- Navbar mobile -->
     <nav
-      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-75 pb-0 d-lg-none"
-    >
+      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-75 pb-0 d-lg-none">
       <div class="container justify-content-around">
         <a class="nav-link text-center text-white" href="#"
           ><i class="bi bi-house-door"></i><br /><small>Home</small></a
@@ -232,7 +236,7 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
+    <script type="module" src="./script/album.js"></script>
   </body>
 </html>
