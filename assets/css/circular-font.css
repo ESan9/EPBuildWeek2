@@ -67,6 +67,10 @@
 
 body {
   font-family: "Circular", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #000;
+  color: white;
 }
 
 body {
@@ -79,22 +83,22 @@ body {
 
 .sidebar-left {
   background-color: #000;
-  height: 100%;
-  overflow-y: auto;
 }
 
 .sidebar-right {
   background-color: #000;
-  height: 100%;
-  overflow-y: auto;
   border-left: 1px solid #2a2a2a;
-}
-
-.main-content {
-  height: 100%;
-  overflow-y: auto;
 }
 
 .album-header h1 {
   font-weight: bold;
+}
+
+#left-arrow {
+  left: 30px;
+  font-size: 1.5em;
+}
+
+.bi {
+  font-size: 1.5em;
 }
