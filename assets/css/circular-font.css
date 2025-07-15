@@ -208,7 +208,7 @@ ul {
   border-radius: 4px;
 }
 
-/* Assicurati che le icone stesse siano della giusta dimensione all'interno dei blocchi */
+/* Dimensione icone */
 .icon-block i {
   font-size: 1.3rem;
 }
