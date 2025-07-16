@@ -1,0 +1,75 @@
+/* Stili generali pagina */
+body {
+  background-color: #121212;
+  color: #ffffff;
+  /* spazio per il footer fisso */
+  padding-bottom: 70px;
+}
+
+/* Header */
+.header {
+  border-bottom: 1px solid #282828;
+}
+
+/* Search bar nell'header */
+.header .form-control {
+  background-color: #282828;
+  border: none;
+  color: #ffffff;
+}
+.header .form-control:focus {
+  background-color: #383838;
+  box-shadow: none;
+  color: #ffffff;
+}
+.header .btn-outline-light {
+  border-color: #ffffff;
+}
+.header .btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Card */
+.card {
+  background-color: #181818;
+  border: none;
+  border-radius: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Immagine in cima alla card */
+.card-img-top {
+  border-radius: 0.5rem 0.5rem 0 0;
+  object-fit: cover;
+  height: 180px;
+}
+
+/* Titolo dentro la card */
+.card-title {
+  font-size: 0.9rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ffffff;
+}
+
+/* Footer sticky */
+footer .navbar {
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.5);
+}
+footer .nav-link {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+#searchInput::placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
