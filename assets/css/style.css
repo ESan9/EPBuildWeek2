@@ -17,18 +17,18 @@ header input:focus {
   border-color: aliceblue;
 }
 #fav {
-  font-size: 20px;
+  font-size: 9px;
   padding: 9.5px 10px;
   background: linear-gradient(135deg, #4b00ff, #98c9c4);
   margin-right: 3px;
   margin-left: -1px;
 }
 #podcasts {
-  font-size: 22px;
+  font-size: 12px;
   padding: 8.5px 10px;
   background: #004537;
   margin-right: 3px;
-  margin-left: -1px;
+  margin-left: -2px;
 }
 .titoli-playlist > p {
   font-size: 12px;
@@ -78,9 +78,21 @@ opacity: 80%;
   height: 300px !important;
 }
 #random-title {
-  font-size: 4.5rem;
+  font-size: 2rem;
  
 }
 #random-phrase, #random-artist {
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+#more {
+  opacity: 0.5;
+  transition: opacity 0.1s ease;
+}
+#more:hover {
+opacity: 100;
+}
+@media (min-width: 992px) {
+  #playlistCol {
+    background-color: #212121; /* oppure black, dark, ecc. */
+  }
 }
