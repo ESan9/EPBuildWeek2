@@ -66,9 +66,9 @@ callTheTower(endpointFisso, query, id).then((data) => {
         // convertiti sec in min ----> GRAZIE GOOGLE
         const minutes = Math.floor(track.duration / 60);
         const seconds = track.duration % 60;
-        duration.textContent = `${minutes}:${seconds
-          .toString()
-          .padStart(2, "0")}`;
+        duration.textContent = `${minutes}:${
+          seconds < 10 ? "0" + seconds : seconds
+        }`;
 
         trackDiv.appendChild(playButton);
         trackDiv.appendChild(title);
