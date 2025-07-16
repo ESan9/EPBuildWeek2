@@ -26,9 +26,11 @@ const cerca = function (id) {
   window.location.href = `./artist.html?eventId=${id}`;
 };
 
+const randomId = Math.ceil(Math.random() * 200);
+const query2 = "artist/";
 //questo serve per popolare l html di home
-// callTheTower(endpointFisso, query, id).then((data) => {
-//   // popola html
-//   const randomTitle = document.getElementById("random-title");
-//   randomTitle.innerText = data.title;
-// });
+callTheTower(endpointFisso, query2, randomId).then((data) => {
+  // popola html
+  const randomTitle = document.getElementById("random-title");
+  randomTitle.innerText = data.title;
+});

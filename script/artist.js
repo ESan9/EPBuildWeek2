@@ -15,7 +15,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
     "imgContainer"
   ).style.backgroundImage = `url('${data.picture_big}')`;
 
-  fetch(endpointFisso + "artist/" + id + "/top?limit=5")
+  fetch(endpointFisso + query + id + "/top?limit=50")
     .then((response) => response.json())
     .then((trackData) => {
       const sectionTrack = document.getElementById("trackContainer");
@@ -83,4 +83,22 @@ callTheTower(endpointFisso, query, id).then((data) => {
 });
 
 //artist/{id}/albums per mostrare album
-//artist/{id}/top?limit=5 per le top piu ascoltate
+//artist/{id}/top?limit=50 per le top piu ascoltate
+
+//funzione Vai a Cercati
+const cerca = function (id3) {
+  window.location.href = `./artist.html?eventId=${id3}`;
+};
+
+const input = document.getElementById("searchBar");
+const searchForm = document.getElementById("searchForm");
+//search bar
+const query3 = "search?q=";
+let id3 = "";
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  callTheTower(endpointFisso, query3, input.value).then((data) => {
+    id3 = data.data[0].artist.id;
+    cerca(id3);
+  });
+});
