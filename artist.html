@@ -3,65 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Album Spotify</title>
+    <title>Artista | Spotify Clone</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous" />
-
+    />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
-    <link href="./assets/css/circular-font.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-      <link href="./assets/css/artist.css" rel="stylesheet">
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/artist.css" />
   </head>
 
   <body class="bg-black text-white">
-    <div class="container-fluid">
-      <div class="row g-0">
+    <div class="container-fluid p-0">
+      <div class="row">
         <!-- Sidebar sinistra -->
-        <aside class="col-3 sidebar-left p-3 d-none d-lg-block fs-5">
-          <a href="#"><i class="bi bi-three-dots text-light"></i></a>
+        <aside
+          class="col-3 sidebar-left p-3 d-none d-lg-block fs-5"
+          style="height: 100vh; background-color: black; color: white"
+        >
+          <a href="#"><i class="bi bi-three-dots text-light fs-4"></i></a>
           <ul class="list-unstyled">
-            <li>
-              <a href="./home.html" class="text-white text-decoration-none"
-                ><i class="bi bi-house-door"></i> Home</a
+            <li class="mb-3">
+              <a
+                href="./home.html"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3"
+                  ><i class="bi bi-house-door"></i
+                ></span>
+                Home
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-search"></i> Cerca</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3"
+                  ><i class="bi bi-search"></i
+                ></span>
+                Cerca
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-music-note-list"></i> La tua libreria</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3"
+                  ><i class="bi bi-collection-fill"></i
+                ></span>
+                La tua libreria
+              </a>
             </li>
-            <li class="mt-3">
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-plus-square-fill"></i> Crea playlist</a
+            <li class="mt-4 mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block me-3"
+                  ><i class="bi bi-plus-square-fill"></i
+                ></span>
+                Crea playlist
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-heart-fill" id="favSong"></i> Brani che ti
-                piacciono</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block icon-wrapper-fav me-3">
+                  <i class="bi bi-heart-fill" style="color: white"></i>
+                </span>
+                Brani che ti piacciono
+              </a>
             </li>
-            <li>
-              <a href="#" class="text-white text-decoration-none"
-                ><i class="bi bi-bookmark-fill" id="episode"></i> I tuoi
-                episodi</a
+            <li class="mb-3">
+              <a
+                href="#"
+                class="text-white text-decoration-none d-flex align-items-center"
               >
+                <span class="icon-block icon-wrapper-podcasts me-3">
+                  <i class="bi bi-bookmark-fill" style="color: white"></i>
+                </span>
+                I tuoi episodi
+              </a>
             </li>
           </ul>
-          <hr />
+          <hr class="text-white-50" />
           <div id="playlist">
             <p class="small text-white-50">Playlist 1</p>
             <p class="small text-white-50">Playlist 2</p>
@@ -70,256 +102,199 @@
         </aside>
 
         <!-- Contenuto principale -->
-        <main class="col-12 col-lg-7 pb-2 bg-dark">
-          <header>
-            <section class="position-relative text-white" style="height: 400px">
-              <!-- Sfondo immagine -->
-              <div
-                id="imgContainer"
-                class="position-absolute top-0 start-0 w-100 h-100"
-                style="
-                  background-image: url('https://www.metalhammer.it/wp-content/uploads/2016/09/metallica1-1200x675.jpg');
-                  background-size: cover;
-                  background-position: center;
-                  z-index: 0;
-                "></div>
+        <main class="col-12 col-lg-7 px-0">
+          <!-- Barra superiore -->
+          <nav
+            class="d-none d-lg-flex align-items-center justify-content-between px-3 py-2 sticky-top"
+            style="background-color: #b78e32; z-index: 1030"
+          >
+            <div class="d-flex gap-2">
+              <button class="btn btn-dark rounded-circle">
+                <i class="bi bi-chevron-left text-white"></i>
+              </button>
+              <button class="btn btn-dark rounded-circle">
+                <i class="bi bi-chevron-right text-white"></i>
+              </button>
+            </div>
 
-              <!-- testo in basso -->
-              <div
-                class="position-relative d-flex align-items-end h-100 p-4"
-                style="z-index: 1">
+            <div class="d-flex align-items-center gap-3">
+              <div class="dropdown d-none d-lg-block">
+                <button
+                  class="btn btn-dark dropdown-toggle rounded-pill"
+                  type="button"
+                  id="dropdownUserMenu"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="./assets/imgs/1.png"
+                    alt="User Avatar"
+                    class="rounded-circle me-2"
+                    width="30"
+                    height="30"
+                  />
+                  <span class="fw-bold">Jason Bon</span>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-dark"
+                  aria-labelledby="dropdownUserMenu"
+                >
+                  <li>
+                    <a class="dropdown-item" href="#">Account</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Profilo</a>
+                  </li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Logout</a>
+                  </li>
+                </ul>
+              </div>
+              <button
+                class="btn btn-dark rounded"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+              >
+                <i class="bi bi-person-circle text-white"></i>
+              </button>
+            </div>
+          </nav>
+
+          <!-- Hero artista -->
+          <section
+            id="imgContainer"
+            class="position-relative text-white d-flex flex-column justify-content-end"
+          >
+            <div
+              class="p-4 bg-gradient"
+              style="
+                background: linear-gradient(
+                  to top,
+                  rgba(0, 0, 0, 0.9),
+                  rgba(0, 0, 0, 0)
+                );
+              "
+            >
+              <p class="text-uppercase small mb-0">
+                <i class="bi bi-patch-check-fill text-primary"></i> Artista
+                verificato
+              </p>
+              <h1 id="title" class="display-2 fw-bold">Nome Artista</h1>
+              <p id="nbFan" class="fs-6">... ascoltatori mensili</p>
+            </div>
+          </section>
+
+          <!-- Controlli -->
+          <div class="d-flex align-items-center gap-3 px-4 pt-4">
+            <i class="bi bi-play-circle-fill text-light fs-1"></i>
+            <button class="btn btn-outline-light rounded-pill px-3 fw-bold">
+              Following
+            </button>
+            <i class="bi bi-three-dots text-white fs-4"></i>
+          </div>
+
+          <!-- Contenuto brani -->
+          <div class="row px-4 pt-4">
+            <!-- Popolari -->
+            <div class="col-12 col-lg-8">
+              <h4 class="mb-3">Popolari</h4>
+              <ul
+                id="trackContainer"
+                class="d-flex flex-column gap-3 overflow-auto p-0"
+                style="max-height: 300px"
+              ></ul>
+            </div>
+
+            <!-- Brani che ti piacciono -->
+            <div class="d-none d-lg-block col-lg-4">
+              <h5 class="mb-3">Brani che ti piacciono</h5>
+              <div class="d-flex align-items-center rounded p-3">
+                <img
+                  src="./assets/imgs/1.png"
+                  alt="Liked"
+                  class="rounded me-3"
+                  width="50"
+                />
                 <div>
-                  <p class="fs-5">
-                    <i class="bi bi-patch-check-fill text-primary"></i> Artista
-                    verificato
-                  </p>
-                  <h1 id="title" class="display-4 fw-bold">Metallica</h1>
-                  <p id="nbFan" class="fs-5">999.999.999 ascoltatori mensili</p>
+                  <p class="mb-0 fw-bold">Hai messo Mi piace a 11 brani</p>
+                  <small class="text-white-50">Di questo artista</small>
                 </div>
               </div>
-            </section>
-          </header>
-          <div
-            class="d-flex justify-content-between justify-content-lg-start pt-4 pb-4">
-            <!--parte following e riproduzione canzoni-->
-
-            <div class="d-flex justify-content-start align-items-center m-2 p-2">
-              <i
-                class="bi bi-play-circle-fill text-success fs-3 ms-1 d-sm-none d-md-none d-lg-inline-block"></i>
-              <button type="button" class="btn btn-dark">Seguiti</button>
-              <i class="bi bi-three-dots-vertical"></i>
-            </div>
-
-            <div class="d-flex justify-content-start m-2 p-2 d-lg-none">
-              <i class="bi bi-shuffle text-light me-1 me-5"></i>
-              <i class="bi bi-play-circle-fill text-success fs-3 ms-1 ms-5"></i>
             </div>
           </div>
-          <!-- fine parte following e riproduzione canzoni-->
-
-          <div class="row d-lg-flex justify-content-lg-between flex-wrap">
-            <!-- Brani Popolari -->
-            <div id="sectionTrack" class=" col-12 col-lg-6 ">
-              <h3 class="m-4 p-2 d-sm-none d-md-none ">Brani che ti piacciono</h3>
-
-<div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="px-2">
-                    <img  class="rounded-circle" src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Brani che ti piacciono</h4>
-                    <p class="m-0 text-white fs-6">8 brani di Metallica</p>
-                  </div>
-                </div>
-
-              
-              </div>
-
-
-
-    
-
-              <!-- si inseriscono qui le canzoni -->
-            </div>
-
-  <div id="sectionTrack" class=" col-12 col-lg-6 ">
-              <h3 class="m-4 p-2">Popolari</h3>
-
-<div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-              <div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-              <div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-
-              <div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-
-              <div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-
-              <div class="d-flex align-items-center justify-content-between bg-dark p-2 rounded">
-                <!--card-->
-                <!-- Parte sinistra -->
-                <div class="d-flex align-items-center">
-                  <div class="text-white px-2">1</div>
-                  <div class="px-2">
-                    <img src="https://place.dog/125/125" alt="dog" width="60" height="60" class="rounded">
-                  </div>
-                  <div class="d-flex flex-column">
-                    <h4 class="m-0 text-white">Titolo</h4>
-                    <p class="m-0 text-white fs-6">10.485.384 ascolti</p>
-                  </div>
-                </div>
-
-                <!-- Icona  destra -->
-                <i class="bi bi-three-dots-vertical text-white"></i>
-              </div>
-
-
-    
-
-              <!-- si inseriscono qui le canzoni -->
-            </div>
-
-            
-          </div>
-          
-          
         </main>
 
         <!-- Sidebar destra -->
-        <aside class="col-2 sidebar-right p-3 d-none d-lg-block">
-          <h6 class="text-light">Attività amici</h6>
-          <div class="mt-3 small">
-            <p>
-              <strong>Anna</strong><br /><small
-                >Amante di ossa • 4 ore fa</small
-              >
-            </p>
-            <p>
-              <strong>Andrea</strong><br /><small
-                >Coccolando gatti • 8 ore fa</small
-              >
-            </p>
-            <p>
-              <strong>Jason</strong><br /><small
-                >Cercando una nuova vittima • 3 giorni fa</small
-              >
-            </p>
-            <p>
-              <strong>Amin</strong><br /><small
-                >Sta arrivando • 3 giorni fa</small
-              >
-            </p>
+        <div
+          class="offcanvas offcanvas-end bg-dark text-white d-none d-lg-block"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+          style="width: 250px"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">
+              Attività amici
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
           </div>
-        </aside>
-      </div>
-
-      <!-- Player mobile tablet -->
-      <footer class="row mt-4 d-inline d-lg-none">
-        <div class="col-12 p-3 bg-dark rounded-3">
-          <div
-            class="player-bar d-flex align-items-center justify-content-between text-white">
-            <div class="d-flex align-items-center text-truncate">
-              <span class="fw-bold">Supernatural Parody by The Hillywo</span>
-            </div>
-            <div class="d-flex align-items-center gap-3">
-              <i class="bi bi-speaker"></i>
-              <i class="bi bi-heart"></i>
-              <i class="bi bi-play-circle-fill text-success fs-3"></i>
+          <div class="offcanvas-body">
+            <div class="small">
+              <p>
+                <strong>Anna</strong><br /><small
+                  >Amante di ossa • 4 ore fa</small
+                >
+              </p>
+              <p>
+                <strong>Andrea</strong><br /><small
+                  >Coccolando gatti • 8 ore fa</small
+                >
+              </p>
+              <p>
+                <strong>Jason</strong><br /><small
+                  >Cercando una nuova vittima • 3 giorni fa</small
+                >
+              </p>
+              <p>
+                <strong>Amin</strong><br /><small
+                  >Sta arrivando • 3 giorni fa</small
+                >
+              </p>
             </div>
           </div>
         </div>
-      </footer>
+      </div>
+
+      <!-- Player mobile  -->
     </div>
 
     <!-- Navbar mobile -->
     <nav
-      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-60 p-2 pb-0 d-lg-none">
+      class="navbar fixed-bottom navbar-dark bg-black bg-opacity-60 p-2 d-lg-none"
+      style="flex-direction: column; gap: 0.5rem"
+    >
+      <div class="col-12 p-3 bg-dark rounded-3">
+        <div
+          class="player-bar d-flex align-items-center justify-content-between text-white"
+        >
+          <div class="d-flex align-items-center text-truncate">
+            <span class="fw-bold">Supernatural Parody by The Hillywo</span>
+          </div>
+          <div class="d-flex align-items-center gap-3">
+            <i class="bi bi-speaker"></i>
+            <i class="bi bi-heart"></i>
+            <i class="bi bi-play-circle-fill text-success fs-3"></i>
+          </div>
+        </div>
+      </div>
       <div class="container justify-content-around">
         <a class="nav-link text-center text-white" href="#"
           ><i class="bi bi-house-door"></i><br /><small>Home</small></a
@@ -342,12 +317,14 @@
           ><i class="bi bi-caret-left-fill"></i
         ></a>
       </div>
+      <!-- riga del player -->
     </nav>
 
+    <!-- Script -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./script/artist.js"></script>
   </body>
 </html>

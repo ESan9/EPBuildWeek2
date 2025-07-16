@@ -1,13 +1,199 @@
-html, body {
-  height: auto;
-  overflow-y: auto;
+/* ===== Font Face ===== */
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Light.otf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-LightItalic.otf);
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Book.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-BookItalic.otf);
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Medium.otf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-MediumItalic.otf);
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Bold.otf);
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-BoldItalic.otf);
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-Black.otf);
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Circular";
+  src: url(../fonts/CircularStd-BlackItalic.otf);
+  font-weight: 900;
+  font-style: italic;
 }
 
+/* ===== Variables ===== */
+:root {
+  --nav-height: 56px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Circular", sans-serif;
+  background: linear-gradient(
+    to bottom,
+    #c79c2d 0%,
+    #c79c2d 30%,
+    #121212 70%,
+    #121212 100%
+  );
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== Main Container ===== */
 .container-fluid {
-  min-height: 100vh;
-  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.row {
+  flex: 1;
+  display: flex;
+  margin: 0;
 }
 
-.row {
-  flex-wrap: wrap !important; 
+/* ===== Sidebar ===== */
+.sidebar-left,
+.sidebar-right {
+  flex: 0 0 250px;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
+.sidebar-left {
+  background: linear-gradient(to bottom, #4a3818, #000000 80%);
+}
+.sidebar-right {
+  background-color: #000;
+}
+
+/* ===== Hero Image ===== */
+#imgContainer {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+#imgContainer .p-4 {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+  padding: 1.5rem;
+}
+
+/* ===== Main Scrollable Area ===== */
+main {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: calc(var(--nav-height) + var(--safe-bottom));
+  -webkit-overflow-scrolling: touch;
+}
+main::-webkit-scrollbar {
+  width: 6px;
+}
+main::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* ===== Track Items ===== */
+#sectionTrack .track-item {
+  background-color: #181818;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+#sectionTrack .track-item:hover {
+  background-color: #282828;
+}
+
+/* ===== Mobile Navbar ===== */
+nav.navbar.fixed-bottom.d-lg-none {
+  bottom: 0;
+  z-index: 900;
+}
+
+/* Wrapper dell'icona "Brani che ti piacciono" */
+.icon-wrapper-fav {
+  background: linear-gradient(135deg, #4b00ff, #98c9c4);
+  border-radius: 4px;
+}
+
+/* Wrapper dell'icona "I tuoi episodi" */
+.icon-wrapper-podcasts {
+  background: #004537;
+  border-radius: 4px;
+}
+
+/* Dimensione icone */
+.icon-block i {
+  font-size: 1.3rem;
+}
+
+.icon-block {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
