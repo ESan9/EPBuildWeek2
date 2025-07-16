@@ -80,6 +80,45 @@ callTheTower(endpointFisso, query, id).then((data) => {
       });
     })
     .catch((err) => console.error("Errore nel recupero dei brani:", err));
+
+  // ---- Inizio parte aggiunta: Fetch e render Albums funziona anche questo ----
+
+  fetch(endpointFisso + query + id + "/albums")
+    .then((res) => res.json())
+    .then((albumData) => {
+      // rimuovi duplicati per titolo
+      const seen = new Set();
+      const uniqueAlbums = albumData.data.filter((a) => {
+        if (seen.has(a.title)) return false;
+        seen.add(a.title);
+        return true;
+      });
+      // ordina per data di uscita (dal più recente al più vecchio)
+      uniqueAlbums.sort(
+        (a, b) => new Date(b.release_date) - new Date(a.release_date)
+      );
+
+      const albumSection = document.getElementById("albumContainer");
+      uniqueAlbums.forEach((album) => {
+        const card = document.createElement("div");
+        card.classList.add("album-card", "text-center", "me-3", "mb-4");
+
+        card.innerHTML = `
+          <img
+            src="${album.cover_medium}"
+            alt="${album.title}"
+            class="rounded w-50 mb-2"
+          />
+          <h6 class="mb-1">${album.title}</h6>
+          <small class="text-light">
+            ${new Date(album.release_date).getFullYear()}
+          </small>
+        `;
+        albumSection.appendChild(card);
+      });
+    })
+    .catch((err) => console.error("Errore nel recupero degli album:", err));
+  // ---- Fine parte aggiunta ----
 });
 
 //artist/{id}/albums per mostrare album
