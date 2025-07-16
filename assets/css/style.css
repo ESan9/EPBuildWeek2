@@ -65,13 +65,13 @@ header input:focus {
   background: linear-gradient(215deg, #242424, #000000);
 }
 #random-container .album {
-  font-size: 15px ;
+  font-size: 15px;
 }
 #hide-button {
   font-size: 15px;
 }
 a:hover {
-opacity: 80%;
+  opacity: 80%;
 }
 #more {
   width: 200px !important;
@@ -93,6 +93,6 @@ opacity: 100;
 }
 @media (min-width: 992px) {
   #playlistCol {
-    background-color: #212121; /* oppure black, dark, ecc. */
+    background-color: #212121;
   }
 }

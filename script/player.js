@@ -22,45 +22,6 @@ const DOM = {
   currentArtistSpan: document.getElementById("current-artist"),
 };
 
-const playlist = [
-  {
-    title: "Viola (feat. Salmo)",
-    src: "audio/viola.mp3",
-    album: {
-      cover_small: "https://via.placeholder.com/60/FF0000/FFFFFF?text=Album1",
-    },
-    artist: {
-      name: "Salmo",
-      picture_small:
-        "https://via.placeholder.com/60/0000FF/FFFFFF?text=Artist1",
-    },
-  },
-  {
-    title: "Song 2",
-    src: "audio/song2.mp3",
-    album: {
-      cover_small: "https://via.placeholder.com/60/00FF00/FFFFFF?text=Album2",
-    },
-    artist: {
-      name: "Artist 2",
-      picture_small:
-        "https://via.placeholder.com/60/FFFF00/000000?text=Artist2",
-    },
-  },
-  {
-    title: "Song 3",
-    src: "audio/song3.mp3",
-    album: {
-      cover_small: "https://via.placeholder.com/60/00FFFF/000000?text=Album3",
-    },
-    artist: {
-      name: "Artist 3",
-      picture_small:
-        "https://via.placeholder.com/60/FF00FF/FFFFFF?text=Artist3",
-    },
-  },
-];
-
 // Stato del player centralizzato
 const playerState = {
   lastVolume: 100,
@@ -377,7 +338,10 @@ function displaySearchResults(tracks) {
   playerState.currentPlaylist = tracks.map((track) => ({
     title: `${track.title} - ${track.artist.name}`, // Formatta il titolo
     src: track.preview,
-    album: { cover_small: track.album.cover_small }, // Dettagli album per la copertina
+    album: {
+      cover_small: track.album.cover_small,
+      title: track.album.title || "Album Sconosciuto",
+    }, // Dettagli album per la copertina e titolo
     artist: {
       name: track.artist.name,
       picture_small: track.artist.picture_small, // Dettagli artista per l'immagine
@@ -395,9 +359,7 @@ function displaySearchResults(tracks) {
                 <img src="${track.album.cover_small}" alt="Copertina Album">
                 <div class="track-info">
                     <h4>${track.title}</h4>
-                    <p>${track.artist.name} - ${
-        track.album.title || "Album Sconosciuto"
-      }</p>
+                    <p>${track.artist.name} - ${track.album.title}</p>
                 </div>
             `;
 
@@ -423,30 +385,34 @@ DOM.searchInput.addEventListener("keypress", (e) => {
 
 // Funzione di inizializzazione del player all'avvio della pagina
 function initializePlayer() {
-  playerState.currentPlaylist = [...playlist];
-  playerState.currentTrackIndex = 0;
+  playerState.currentPlaylist = [];
+  playerState.currentTrackIndex = -1;
 
-  if (playerState.currentPlaylist.length > 0) {
-    loadTrack(
-      playerState.currentPlaylist[playerState.currentTrackIndex],
-      playerState.currentTrackIndex,
-      false
-    );
-  } else {
-    loadTrack(
-      {
-        title: "Nessun brano in riproduzione",
-        src: "",
-        album: { cover_small: "https://via.placeholder.com/60" },
-        artist: { name: "Artista sconosciuto", picture_small: "" },
-      },
-      -1,
-      false
-    );
+  // Nasconde il player senza canzoni
+  const mediaPlayer = document.getElementById("media-player");
+  if (mediaPlayer) {
+    mediaPlayer.style.display = "none";
   }
 
   DOM.volumeBar.value = DOM.audioSource.volume * 100;
   updatePlayerUI();
 }
+
+// Modifica la canzone corrente quando il player viene caricato
+const originalLoadTrack = loadTrack;
+loadTrack = function (trackObject, newIndex, playImmediately = false) {
+  if (!trackObject || !trackObject.src) {
+    console.error("Oggetto traccia non valido fornito a loadTrack.");
+    return;
+  }
+
+  // Mostra il player quando parte una canzone
+  const mediaPlayer = document.getElementById("media-player");
+  if (mediaPlayer) {
+    mediaPlayer.style.display = "flex";
+  }
+
+  originalLoadTrack(trackObject, newIndex, playImmediately);
+};
 
 document.addEventListener("DOMContentLoaded", initializePlayer);

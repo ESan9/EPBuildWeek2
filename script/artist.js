@@ -18,13 +18,13 @@ callTheTower(endpointFisso, query, id).then((data) => {
   fetch(endpointFisso + "artist/" + id + "/top?limit=5")
     .then((response) => response.json())
     .then((trackData) => {
-      const sectionTrack = document.getElementById("sectionTrack");
+      const sectionTrack = document.getElementById("trackContainer");
 
       trackData.data.forEach((track) => {
-        const trackDiv = document.createElement("div");
+        const trackDiv = document.createElement("li");
         trackDiv.classList.add(
           "track-item",
-          "mb-3",
+          "mb-1",
           "d-flex",
           "align-items-center",
           "gap-3",
