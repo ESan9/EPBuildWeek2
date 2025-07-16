@@ -26,11 +26,31 @@ const cerca = function (id) {
   window.location.href = `./artist.html?eventId=${id}`;
 };
 
-const randomId = Math.ceil(Math.random() * 200);
-const query2 = "artist/";
+//funzione per lettera casuale
+const letteraCasuale = () => {
+  const lettere = "abcdefghijklmnopqrstuvwxyz";
+  const indice = Math.floor(Math.random() * lettere.length);
+  return lettere[indice] + lettere[indice - 1]; //perchè cosi almeno mette due lettere a cazzz
+};
+const randomId = letteraCasuale();
 //questo serve per popolare l html di home
-callTheTower(endpointFisso, query2, randomId).then((data) => {
+callTheTower(endpointFisso, query, randomId).then((data) => {
   // popola html
+
   const randomTitle = document.getElementById("random-title");
-  randomTitle.innerText = data.title;
+  randomTitle.innerText = data.data[0].artist.name;
+  const randomSong = document.getElementById("random-artist");
+  randomSong.innerText = data.data[num].title_short;
+  const randomRank = document.getElementById("random-phrase");
+  randomRank.innerText = `${data.data.length - 1} brani`;
+  const randomImg = document.getElementById("random-img");
+  randomImg.setAttribute("src", data.data[0].artist.picture);
 });
+
+let num = 0;
+const btnAvanti = document.getElementById("avanti");
+btnAvanti.addEventListener("click", () => {
+  num += 1;
+});
+
+//data.data[0].link sarebbe il link alla traccia
