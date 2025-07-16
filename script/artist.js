@@ -36,7 +36,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
         audio.preload = "none";
 
         const playButton = document.createElement("button");
-        playButton.className = "btn btn-outline-light play-btn";
+        playButton.className = "btn btn-outline-light play-btn play-button";
         playButton.innerHTML = `<i class="bi bi-play-fill"></i> Play`;
         playButton.addEventListener("click", () => {
           if (audio.paused) {
