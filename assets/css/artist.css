@@ -167,12 +167,6 @@ main::-webkit-scrollbar-thumb {
   background-color: #282828;
 }
 
-/* ===== Mobile Navbar ===== */
-nav.navbar.fixed-bottom.d-lg-none {
-  bottom: 0;
-  z-index: 900;
-}
-
 /* Wrapper dell'icona "Brani che ti piacciono" */
 .icon-wrapper-fav {
   background: linear-gradient(135deg, #4b00ff, #98c9c4);
@@ -196,4 +190,40 @@ nav.navbar.fixed-bottom.d-lg-none {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ===== Transparent desktop scrollbars (WebKit browsers: Chrome, Safari) ===== */
+main,
+.sidebar-left,
+.sidebar-right {
+  /* imposta larghezza/altezza della scrollbar */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent; /* Firefox: thumb, track */
+}
+
+/* WebKit */
+main::-webkit-scrollbar,
+.sidebar-left::-webkit-scrollbar,
+.sidebar-right::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+main::-webkit-scrollbar-track,
+.sidebar-left::-webkit-scrollbar-track,
+.sidebar-right::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+main::-webkit-scrollbar-thumb,
+.sidebar-left::-webkit-scrollbar-thumb,
+.sidebar-right::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+main::-webkit-scrollbar-thumb,
+.sidebar-left::-webkit-scrollbar-thumb,
+.sidebar-right::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }

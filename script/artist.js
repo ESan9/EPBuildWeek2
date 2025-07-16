@@ -24,7 +24,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
         const trackDiv = document.createElement("li");
         trackDiv.classList.add(
           "track-item",
-          "mb-1",
+          "mb-0",
           "d-flex",
           "align-items-center",
           "gap-3",
