@@ -24,7 +24,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
         const trackDiv = document.createElement("li");
         trackDiv.classList.add(
           "track-item",
-          "mb-1",
+          "mb-0",
           "d-flex",
           "align-items-center",
           "gap-3",
@@ -36,7 +36,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
         audio.preload = "none";
 
         const playButton = document.createElement("button");
-        playButton.className = "btn btn-outline-light play-btn";
+        playButton.className = "btn btn-outline-light play-btn play-button";
         playButton.innerHTML = `<i class="bi bi-play-fill"></i> Play`;
         playButton.addEventListener("click", () => {
           if (audio.paused) {
