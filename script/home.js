@@ -98,7 +98,7 @@ const ennesimaFunzione = () => {
     const randomRank = document.getElementById("random-phrase");
     randomRank.innerText = `${data.data.length - 1} brani`;
     const randomImg = document.getElementById("random-img");
-    randomImg.setAttribute("src", data.data[0].artist.picture);
+    randomImg.setAttribute("src", data.data[0].artist.picture_xl);
 
     //Salva PER AGG ad ArrayPrefe -> salva in local storage
     iconHeart.removeEventListener("click", clickCuore);
@@ -223,7 +223,7 @@ const popolaAlbum = (id) => {
                   class="card border-0 bg-transparent w-75 mt-2"
                   style="width: 18rem">
                   <img
-                    src="${data.cover}"
+                    src="${data.cover_xl}"
                     class="card-img-top"
                     alt="logo album" />
                   <div class="card-body">

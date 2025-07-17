@@ -9,7 +9,7 @@ const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
 const query = "album/";
 callTheTower(endpointFisso, query, id).then((data) => {
   //popola html
-  document.getElementById("imgAlbum").setAttribute("src", data.cover);
+  document.getElementById("imgAlbum").setAttribute("src", data.cover_xl);
   document.getElementById("album").innerText = data.title;
 
   const nomeGruppo = document.getElementById("nomeGruppo");
