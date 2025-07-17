@@ -212,3 +212,13 @@ ul {
 .icon-block i {
   font-size: 1.3rem;
 }
+
+.play-button {
+  /* Imposta dimensioni fisse o relative, e lascia che flexbox gestisca la distribuzione */
+  width: 60px; /* Larghezza di base */
+  height: 60px; /* Altezza di base */
+  flex-shrink: 0; /* Impedisce al bottone di ridursi se lo spazio è limitato */
+  /* oppure */
+  flex: 0 0 auto; /* Non crescere, non restringersi, dimensione automatica */
+  /* ... altri stili ... */
+}
