@@ -48,8 +48,6 @@ const ciclaTrack = (array) => {
     const playButton = document.createElement("button");
     playButton.className = "btn btn-outline-light play-btn play-button me-2";
     playButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
-    playButton.style.width = "40px";
-    playButton.style.height = "40px";
 
     playButton.addEventListener("click", () => {
       if (audio.paused) {
@@ -77,9 +75,7 @@ const ciclaTrack = (array) => {
       "d-flex justify-content-between align-items-center py-2 px-3";
     listItem.innerHTML = `
       <div class="d-flex align-items-center gap-3" style="width: 60%">
-        <span class="track-number text-light d-none d-lg-block">${
-          index + 1
-        }</span>
+        
         <div>
           <h5 class="mb-0 text-white">${element.title_short}</h5>
           <small class="text-white-50">${element.artist.name}</small>
