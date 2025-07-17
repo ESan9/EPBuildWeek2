@@ -13,7 +13,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
   ).innerText = `${data.nb_fan} ascoltatori mensili`;
   document.getElementById(
     "imgContainer"
-  ).style.backgroundImage = `url('${data.picture_big}')`;
+  ).style.backgroundImage = `url('${data.picture_xl}')`;
 
   fetch(endpointFisso + query + id + "/top?limit=50")
     .then((response) => response.json())
