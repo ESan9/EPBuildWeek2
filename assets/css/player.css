@@ -161,7 +161,9 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.player-info .artist-name:hover {
+  color: #1ed760;
+}
 .player-controls-top {
   justify-content: center;
   gap: 15px;
