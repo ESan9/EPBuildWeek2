@@ -15,7 +15,7 @@ if (preferiti) {
           <a href="#" class="text-decoration-none">
             <div class="card h-100">
               <img
-                src="${data.data[0].album.cover}"
+                src="${data.data[0].album.cover_xl}"
                 alt="Titolo album"
                 class="card-img-top" />
               <div class="card-body p-2">
