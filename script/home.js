@@ -63,22 +63,22 @@ const clickCuore = () => {
   }
 
   // usa l'id
-  const currentTrackId =
-    document.getElementById("random-artist").dataset.trackId;
+  const currentTrackId = document.getElementById("random-artist");
+  const nomeCanzone = currentTrackId.textContent;
 
-  if (!currentTrackId) {
+  if (!nomeCanzone) {
     console.error("ID traccia non trovato");
     return;
   }
 
-  const albumPrefe = preferitiAlbum.includes(currentTrackId);
+  const albumPrefe = preferitiAlbum.includes(nomeCanzone);
   if (albumPrefe) {
     preferitiAlbum = preferitiAlbum.filter(
-      (albumId) => albumId !== currentTrackId
+      (albumId) => albumId !== nomeCanzone
     );
     iconHeart.classList.remove("bg-success");
   } else {
-    preferitiAlbum.push(currentTrackId);
+    preferitiAlbum.push(nomeCanzone);
     iconHeart.classList.add("bg-success");
   }
   localStorage.setItem("preferitiAlbum", JSON.stringify(preferitiAlbum));

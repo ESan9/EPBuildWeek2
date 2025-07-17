@@ -107,18 +107,19 @@ const ciclaTrack = (array) => {
 //ICONA CUORE PER AGG ad ArrayPrefe -> salva in local storage
 const iconHeart = document.getElementById("iconHeart");
 iconHeart.addEventListener("click", () => {
+  const nomeGruppo = document.getElementById("nomeGruppo").textContent;
   let preferitiAlbum = [];
   if (localStorage.getItem("preferitiAlbum")) {
     preferitiAlbum = JSON.parse(localStorage.getItem("preferitiAlbum"));
   }
-  const albumPrefe = preferitiAlbum.includes(id);
+  const albumPrefe = preferitiAlbum.includes(nomeGruppo);
 
   if (albumPrefe) {
-    preferitiAlbum = preferitiAlbum.filter((albumId) => albumId !== id);
+    preferitiAlbum = preferitiAlbum.filter((albumId) => albumId !== nomeGruppo);
     iconHeart.classList.remove("bi-heart-fill");
     iconHeart.classList.add("bi-heart");
   } else {
-    preferitiAlbum.push(id);
+    preferitiAlbum.push(nomeGruppo);
     iconHeart.classList.remove("bi-heart");
     iconHeart.classList.add("bi-heart-fill");
   }
