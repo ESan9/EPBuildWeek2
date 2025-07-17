@@ -326,10 +326,12 @@
                   <p id="random-phrase" class="text-white mb-1">vbjkxvbs</p>
                   <div class="d-flex gap-3">
                     <button
+                      id="playPlayer"
                       class="btn fw-bold text-black px-4 py-2 mt-3 rounded-pill bg-success">
                       Play
                     </button>
                     <button
+                      id="iconHeart"
                       class="btn fw-bold text-white px-4 py-2 mt-3 rounded-pill border-1 border-white">
                       Salva
                     </button>
@@ -441,21 +443,7 @@
             <div
               class="row gap-4 d-none d-lg-block mx-lg-4 mx-md-5"
               id="albumCard">
-              <div
-                class="col-2 bg-dark d-flex justify-content-center align-items-center rounded-2">
-                <div
-                  class="card border-0 bg-transparent w-75 mt-2"
-                  id="more"
-                  style="width: 18rem">
-                  <img
-                    src="./assets/imgs/search/image-14.jpg"
-                    class="card-img-top"
-                    alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title text-white">Top Songs Global</h5>
-                  </div>
-                </div>
-              </div>
+              <!-- QUI VANNO LE CARD DEGLI ALBUM -->
             </div>
           </div>
           <div class="col-2 d-none d-lg-block min-vh-100 p-0">
@@ -610,6 +598,82 @@
       </div>
     </main>
     <footer>
+      <!-- PLAYER -->
+      <!-- Bottone per mostrare/nascondere il player -->
+      <button id="playPlayer" class="btn btn-primary m-3">
+        Play Random Track
+      </button>
+
+      <!-- Player Bootstrap (inizialmente nascosto) -->
+      <div
+        id="player-container"
+        class="d-flex align-items-center justify-content-between p-3 bg-dark text-white"
+        style="
+          display: none;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 1050;
+        ">
+        <img
+          id="player-cover"
+          src=""
+          alt="cover"
+          style="
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+          " />
+        <div class="mx-3 flex-grow-1">
+          <div id="player-title" style="font-weight: 600">Titolo traccia</div>
+          <div id="player-artist" style="font-size: 0.9em; color: #bbb">
+            Artista
+          </div>
+        </div>
+
+        <audio id="player-audio" preload="none"></audio>
+
+        <div class="d-flex align-items-center gap-2">
+          <button id="player-play-pause" class="btn btn-sm btn-outline-light">
+            <i class="fas fa-play"></i>
+          </button>
+          <button id="player-stop" class="btn btn-sm btn-outline-light">
+            <i class="fas fa-stop"></i>
+          </button>
+          <input
+            id="player-volume"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="1" />
+          <div
+            class="d-flex align-items-center gap-2 ms-3"
+            style="width: 250px">
+            <span id="current-time" style="width: 40px; font-size: 0.8em"
+              >0:00</span
+            >
+            <input
+              type="range"
+              id="progress-bar"
+              value="0"
+              min="0"
+              step="1"
+              class="form-range flex-grow-1" />
+            <span id="duration" style="width: 40px; font-size: 0.8em"
+              >0:30</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- FontAwesome CDN per icone -->
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
       <nav
         class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4">
         <div class="container-fluid justify-content-around">
