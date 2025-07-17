@@ -2,17 +2,15 @@
 import { callTheTower } from "./callTheTower.js";
 
 //recupera id
-// const parameters = new URLSearchParams(location.search);
-// const id = parameters.get("album");
-const id = "256250622";
+const parameters = new URLSearchParams(location.search);
+const id = parameters.get("eventId");
 
 const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
 const query = "album/";
 callTheTower(endpointFisso, query, id).then((data) => {
   //popola html
-
-  const album = document.getElementById("album");
-  album.innerText = data.title;
+  document.getElementById("imgAlbum").setAttribute("src", data.cover);
+  document.getElementById("album").innerText = data.title;
 
   const nomeGruppo = document.getElementById("nomeGruppo");
   nomeGruppo.innerText = data.artist.name;
@@ -41,40 +39,68 @@ const contaMin = (array) => {
 
 const ciclaTrack = (array) => {
   array.forEach((element, index) => {
+    // audio
+    const audio = document.createElement("audio");
+    audio.src = element.preview;
+    audio.preload = "none";
+
+    // btn audio
+    const playButton = document.createElement("button");
+    playButton.className = "btn btn-outline-light play-btn play-button me-2";
+    playButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+    playButton.style.width = "40px";
+    playButton.style.height = "40px";
+
+    playButton.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playButton.innerHTML = `<i class="bi bi-pause-fill"></i>`;
+      } else {
+        audio.pause();
+        playButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+      }
+    });
+
+    // fine audio
+    audio.addEventListener("ended", () => {
+      playButton.innerHTML = `<i class="bi bi-play-fill"></i>`;
+    });
+
+    //secondi a min
     const minutes = Math.floor(element.duration / 60);
     const seconds = element.duration % 60;
-    // Giusto per avere anche lo zero altrimenti è brutto lo spazio TERNARIO POWER
     const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
-    trackContainer.innerHTML += ` <li
-                class="d-flex justify-content-between align-items-center py-2 px-3"
-              >
-                <div class="d-flex align-items-center gap-3" style="width: 60%">
-                  <span class="track-number text-light d-none d-lg-block"
-                    >${index + 1}</span
-                  >
-                  <div>
-                    <h5 class="mb-0 text-white">${element.title_short}</h5>
-                    <small class="text-white-50"
-                      >${element.artist.name}</small
-                    >
-                  </div>
-                </div>
 
-                <div class="d-flex align-items-center" style="width: 40%">
-                  <div
-                    class="d-flex w-100 justify-content-between d-none d-lg-flex"
-                  >
-                    <small class="text-white-50 track-plays">${
-                      element.rank
-                    }</small>
-                    <small class="text-white-50 track-duration">${minutes}:${formattedSeconds}</small>
-                  </div>
+    // li
+    const listItem = document.createElement("li");
+    listItem.className =
+      "d-flex justify-content-between align-items-center py-2 px-3";
+    listItem.innerHTML = `
+      <div class="d-flex align-items-center gap-3" style="width: 60%">
+        <span class="track-number text-light d-none d-lg-block">${
+          index + 1
+        }</span>
+        <div>
+          <h5 class="mb-0 text-white">${element.title_short}</h5>
+          <small class="text-white-50">${element.artist.name}</small>
+        </div>
+      </div>
 
-                  <i
-                    class="bi bi-three-dots-vertical text-light d-lg-none ms-auto"
-                  ></i>
-                </div>
-              </li>`;
+      <div class="d-flex align-items-center" style="width: 40%">
+        <div class="d-flex w-100 justify-content-between d-none d-lg-flex">
+          <small class="text-white-50 track-plays">${element.rank}</small>
+          <small class="text-white-50 track-duration">${minutes}:${formattedSeconds}</small>
+        </div>
+        <i class="bi bi-three-dots-vertical text-light d-lg-none ms-auto"></i>
+      </div>
+    `;
+
+    const trackInfo = listItem.querySelector(
+      ".d-flex.align-items-center.gap-3"
+    );
+    trackInfo.insertBefore(playButton, trackInfo.firstChild);
+
+    trackContainer.appendChild(listItem);
   });
 };
 

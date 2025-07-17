@@ -336,15 +336,16 @@ function displaySearchResults(tracks) {
   DOM.searchResultsContainer.innerHTML = "";
 
   playerState.currentPlaylist = tracks.map((track) => ({
-    title: `${track.title} - ${track.artist.name}`, // Formatta il titolo
+    title: `${track.title} - ${track.artist.name}`,
     src: track.preview,
     album: {
       cover_small: track.album.cover_small,
       title: track.album.title || "Album Sconosciuto",
-    }, // Dettagli album per la copertina e titolo
+    },
     artist: {
+      id: track.artist.id,
       name: track.artist.name,
-      picture_small: track.artist.picture_small, // Dettagli artista per l'immagine
+      picture_small: track.artist.picture_small,
     },
   }));
 
@@ -352,20 +353,32 @@ function displaySearchResults(tracks) {
     playerState.currentTrackIndex = -1;
 
     playerState.currentPlaylist.forEach((track, index) => {
+      const linkWrapper = document.createElement("a");
+      linkWrapper.href = `/artist/${track.artist.id}`;
+      linkWrapper.classList.add("search-result-link");
+      linkWrapper.style.textDecoration = "none";
+      linkWrapper.style.color = "inherit";
       const resultDiv = document.createElement("div");
       resultDiv.classList.add("search-result-item");
 
       resultDiv.innerHTML = `
-                <img src="${track.album.cover_small}" alt="Copertina Album">
-                <div class="track-info">
-                    <h4>${track.title}</h4>
-                    <p>${track.artist.name} - ${track.album.title}</p>
-                </div>
-            `;
+  <img src="${track.album.cover_small}" alt="Copertina Album">
+  <div class="track-info">
+    <h4>${track.title}</h4>
+    <p>
+      <a href="/artist/${track.artist.id}" class="artist-link">${track.artist.name}</a> - 
+      ${track.album.title}
+    </p>
+  </div>
+  <button class="play-btn"><i class="fas fa-play"></i></button>
+`;
 
-      resultDiv.addEventListener("click", () => {
+      const playBtn = resultDiv.querySelector(".play-btn");
+      playBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
         loadTrack(track, index, true);
       });
+
       DOM.searchResultsContainer.appendChild(resultDiv);
     });
   } else {
