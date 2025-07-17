@@ -18,6 +18,8 @@ searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   callTheTower(endpointFisso, query, input.value).then((data) => {
     id = data.data[0].artist.id;
+
+    //implementa primi risutati
     cerca(id);
   });
 });
@@ -193,6 +195,8 @@ progressBar.addEventListener("change", () => {
   progressBar.dataset.dragging = "";
 });
 
+// FINE PLAYER
+
 //data.data[0].link sarebbe il link alla traccia
 
 //album
@@ -201,7 +205,7 @@ const id2 = "127402";
 const id3 = "110512";
 const query4 = "album/";
 
-const albumCard = document.getElementById("albumCard");
+const albumCard = document.getElementById("albumCard"); // la row
 const popolaAlbum = (id) => {
   callTheTower(endpointFisso, query4, id).then((data) => {
     //popola html
