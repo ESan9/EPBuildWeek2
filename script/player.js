@@ -32,6 +32,24 @@ const playerState = {
   isRepeating: false,
 };
 
+let onTrackChangeCallback = null;
+
+export function onTrackChange(callback) {
+  onTrackChangeCallback = callback;
+}
+
+export function setPlaylist(playlist) {
+  if (Array.isArray(playlist)) {
+    playerState.currentPlaylist = playlist;
+    playerState.currentTrackIndex = 0;
+    if (playlist.length > 0) {
+      loadTrack(playlist[0], 0, false);
+    }
+  } else {
+    console.error("setPlaylist expects an array");
+  }
+}
+
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = Math.floor(seconds % 60);
@@ -96,7 +114,7 @@ function updatePlayerUI() {
   DOM.repeatBtn.classList.toggle("active", playerState.isRepeating);
 }
 
-function loadTrack(trackObject, newIndex, playImmediately = false) {
+export function loadTrack(trackObject, newIndex, playImmediately = false) {
   if (!trackObject || !trackObject.src) {
     console.error("Oggetto traccia non valido fornito a loadTrack.");
     return;
@@ -137,10 +155,13 @@ function loadTrack(trackObject, newIndex, playImmediately = false) {
   }
 
   updatePlayerUI();
+
+  if (typeof onTrackChangeCallback === "function") {
+    onTrackChangeCallback(trackObject, newIndex);
+  }
 }
 
-// Funzione per gestire il passaggio al brano successivo o precedente nella playlist corrente
-function goToNextOrPreviousTrack(direction) {
+export function goToNextOrPreviousTrack(direction) {
   const targetPlaylist = playerState.currentPlaylist;
   const currentIndex = playerState.currentTrackIndex;
 
@@ -168,13 +189,125 @@ function goToNextOrPreviousTrack(direction) {
   loadTrack(targetPlaylist[newIndex], newIndex, true);
 }
 
-// Listener per il pulsante Play/Pause
-DOM.playPauseBtn.addEventListener("click", () => {
-  if (DOM.audioSource.paused) {
-    DOM.audioSource.play();
+document.addEventListener("DOMContentLoaded", () => {
+  // Listener per il pulsante Play/Pause
+  DOM.playPauseBtn.addEventListener("click", () => {
+    console.log("Play/Pause button clicked");
+    if (DOM.audioSource.paused) {
+      DOM.audioSource.play();
+    } else {
+      DOM.audioSource.pause();
+    }
+  });
+
+  // Listener per il pulsante Precedente
+  if (DOM.prevBtn) {
+    DOM.prevBtn.addEventListener("click", () => {
+      console.log("Previous button clicked");
+      goToNextOrPreviousTrack(-1);
+    });
   } else {
-    DOM.audioSource.pause();
+    console.error("Previous button element not found");
   }
+
+  // Listener per il pulsante Successivo
+  if (DOM.nextBtn) {
+    DOM.nextBtn.addEventListener("click", () => {
+      console.log("Next button clicked");
+      goToNextOrPreviousTrack(1);
+    });
+  } else {
+    console.error("Next button element not found");
+  }
+
+  // Listener per gli eventi 'play' e 'pause' dell'audio
+  DOM.audioSource.addEventListener("play", updatePlayerUI);
+  DOM.audioSource.addEventListener("pause", updatePlayerUI);
+
+  // Listener per l'evento 'loadedmetadata'
+  DOM.audioSource.addEventListener("loadedmetadata", () => {
+    DOM.progressBar.max = DOM.audioSource.duration;
+    DOM.durationSpan.textContent = formatTime(DOM.audioSource.duration);
+    DOM.progressBar.value = 0;
+    DOM.currentTimeSpan.textContent = formatTime(0);
+    updatePlayerUI();
+  });
+
+  // Listener per l'evento 'timeupdate' (aggiorna il tempo corrente e la progress bar)
+  DOM.audioSource.addEventListener("timeupdate", () => {
+    if (!DOM.progressBar.dataset.dragging) {
+      DOM.progressBar.value = DOM.audioSource.currentTime;
+    }
+    DOM.currentTimeSpan.textContent = formatTime(DOM.audioSource.currentTime);
+    _updateProgressBarFill();
+  });
+
+  // Listener per l'evento 'input' sulla progress bar (trascinamento)
+  DOM.progressBar.addEventListener("input", () => {
+    DOM.progressBar.dataset.dragging = "true";
+    DOM.audioSource.currentTime = DOM.progressBar.value;
+    DOM.currentTimeSpan.textContent = formatTime(DOM.audioSource.currentTime);
+    _updateProgressBarFill();
+  });
+
+  // Listener per l'evento 'change' progress bar (rilascio trascinamento)
+  DOM.progressBar.addEventListener("change", () => {
+    DOM.progressBar.dataset.dragging = "";
+    DOM.audioSource.currentTime = DOM.progressBar.value;
+    if (!DOM.audioSource.paused) {
+      DOM.audioSource.play();
+    }
+    _updateProgressBarFill();
+  });
+
+  // Listener per l'evento 'input' volume bar
+  DOM.volumeBar.addEventListener("input", () => {
+    DOM.audioSource.volume = DOM.volumeBar.value / 100;
+    playerState.lastVolume = DOM.volumeBar.value;
+    updatePlayerUI();
+  });
+
+  // Listener per il pulsante Mute
+  DOM.muteBtn.addEventListener("click", () => {
+    console.log("Mute button clicked");
+    if (DOM.audioSource.volume === 0) {
+      DOM.audioSource.volume = playerState.lastVolume / 100;
+      DOM.volumeBar.value = playerState.lastVolume;
+    } else {
+      playerState.lastVolume = DOM.volumeBar.value;
+      DOM.audioSource.volume = 0;
+      DOM.volumeBar.value = 0;
+    }
+    updatePlayerUI();
+  });
+
+  // Listener per l'evento 'volumechange' dell'audio (es. da tasti hardware)
+  DOM.audioSource.addEventListener("volumechange", updatePlayerUI);
+
+  // Listener per fine brano
+  DOM.audioSource.addEventListener("ended", () => {
+    if (playerState.isRepeating) {
+      DOM.audioSource.currentTime = 0;
+      DOM.audioSource.play();
+      return;
+    }
+
+    goToNextOrPreviousTrack(1);
+  });
+
+  // Listener per il pulsante Shuffle
+  DOM.shuffleBtn.addEventListener("click", () => {
+    playerState.isShuffling = !playerState.isShuffling;
+    updatePlayerUI();
+    console.log("Shuffle mode:", playerState.isShuffling ? "ON" : "OFF");
+  });
+
+  // Listener per il pulsante Repeat
+  DOM.repeatBtn.addEventListener("click", () => {
+    playerState.isRepeating = !playerState.isRepeating;
+    updatePlayerUI();
+    console.log("Repeat mode:", playerState.isRepeating ? "ON" : "OFF");
+  });
 });
 
 // Listener per gli eventi 'play' e 'pause' dell'audio
@@ -226,6 +359,7 @@ DOM.volumeBar.addEventListener("input", () => {
 
 // Listener per il pulsante Mute
 DOM.muteBtn.addEventListener("click", () => {
+  console.log("Mute button clicked");
   if (DOM.audioSource.volume === 0) {
     DOM.audioSource.volume = playerState.lastVolume / 100;
     DOM.volumeBar.value = playerState.lastVolume;
@@ -241,14 +375,24 @@ DOM.muteBtn.addEventListener("click", () => {
 DOM.audioSource.addEventListener("volumechange", updatePlayerUI);
 
 // Listener per il pulsante Precedente
-DOM.prevBtn.addEventListener("click", () => {
-  goToNextOrPreviousTrack(-1);
-});
+if (DOM.prevBtn) {
+  DOM.prevBtn.addEventListener("click", () => {
+    console.log("Previous button clicked");
+    goToNextOrPreviousTrack(-1);
+  });
+} else {
+  console.error("Previous button element not found");
+}
 
 // Listener per il pulsante Successivo
-DOM.nextBtn.addEventListener("click", () => {
-  goToNextOrPreviousTrack(1);
-});
+if (DOM.nextBtn) {
+  DOM.nextBtn.addEventListener("click", () => {
+    console.log("Next button clicked");
+    goToNextOrPreviousTrack(1);
+  });
+} else {
+  console.error("Next button element not found");
+}
 
 // Listener per fine brano
 DOM.audioSource.addEventListener("ended", () => {
