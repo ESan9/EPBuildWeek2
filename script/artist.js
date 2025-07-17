@@ -37,19 +37,19 @@ callTheTower(endpointFisso, query, id).then((data) => {
 
         const playButton = document.createElement("button");
         playButton.className = "btn btn-outline-light play-btn play-button";
-        playButton.innerHTML = `<i class="bi bi-play-fill"></i> Play`;
+        playButton.innerHTML = `<i class="bi bi-play-fill"></i> `;
         playButton.addEventListener("click", () => {
           if (audio.paused) {
             audio.play();
-            playButton.innerHTML = `<i class="bi bi-pause-fill"></i> Pause`;
+            playButton.innerHTML = `<i class="bi bi-pause-fill"></i> `;
           } else {
             audio.pause();
-            playButton.innerHTML = `<i class="bi bi-play-fill"></i> Play`;
+            playButton.innerHTML = `<i class="bi bi-play-fill"></i> `;
           }
         });
 
         audio.addEventListener("ended", () => {
-          playButton.innerHTML = `<i class="bi bi-play-fill"></i> Play`;
+          playButton.innerHTML = `<i class="bi bi-play-fill"></i> `;
         });
 
         const title = document.createElement("p");
