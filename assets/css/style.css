@@ -157,7 +157,7 @@ a:hover {
   opacity: 100;
 }
 #albumCard .card-body, .bg-dark {
- background-color: #212121 !important;
+ background-color: #0E0E0E !important;
 }
 @media (min-width: 992px) {
   #playlistCol {

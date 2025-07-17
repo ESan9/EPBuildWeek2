@@ -227,7 +227,7 @@ const popolaAlbum = (id) => {
                     class="card-img-top"
                     alt="logo album" />
                   <div class="card-body">
-                    <h5 class="card-title text-white">${data.title}</h5>
+                    <h5 class="card-title text-white fs-6">${data.title}</h5>
                   </div>
                 </div>`;
 
