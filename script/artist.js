@@ -13,7 +13,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
   ).innerText = `${data.nb_fan} ascoltatori mensili`;
   document.getElementById(
     "imgContainer"
-  ).style.backgroundImage = `url('${data.picture_big}')`;
+  ).style.backgroundImage = `url('${data.picture_xl}')`;
 
   fetch(endpointFisso + query + id + "/top?limit=50")
     .then((response) => response.json())
@@ -105,7 +105,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
 
         card.innerHTML = `
           <img
-            src="${album.cover_medium}"
+            src="${album.cover_xl}"
             alt="${album.title}"
             class="rounded w-50 mb-2"
           />
