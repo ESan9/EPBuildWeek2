@@ -8,41 +8,37 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"
+    />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/player.css" />
   </head>
   <body class="bg-black bg-gradient min-vh-100 mx-4 mt-5 mx-md-0 my-md-0">
     <header>
       <!--SearchBar-->
-      <nav id="searchNav" class="navbar bg-black d-none fixed-top">
-        <div class="container-fluid">
-          <a href="#" class="navbar-brand mb-0 h1">
-            <i class="bi bi-spotify text-light fs-1"></i
-          ></a>
-          <form id="searchForm" class="d-flex m-auto">
-            <div class="input-group h-50 align-items-center">
-              <span
-                class="input-group-text border-0 rounded-start-pill py-2"
-                style="background-color: #212121">
-                <i class="bi bi-search text-white-50" id="search-btn"></i>
-              </span>
-              <input
-                type="text"
-                class="form-control border-0 rounded-end-pill text-white-50 px-5 py-2"
-                placeholder="Cerca la tua musica..."
-                style="background-color: #212121"
-                id="searchBar" />
-            </div>
-          </form>
-        </div>
-      </nav>
+      <div class="search-section">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Cerca una canzone, artista o album..."
+        />
+        <button id="search-button">Cerca</button>
+      </div>
+
+      <div class="search-results-container" id="search-results"></div>
+
       <!--SearchBar-->
       <div
-        class="welcome d-flex d-lg-none align-items-center justify-content-between mx-md-5 mt-md-5 mx-1">
+        class="welcome d-flex d-lg-none align-items-center justify-content-between mx-md-5 mt-md-5 mx-1"
+      >
         <h1 class="text-light">Ciao!</h1>
         <div>
           <a href="#"><i class="bi bi-bell text-light fs-2 ms-3"></i></a>
@@ -65,10 +61,12 @@
               src="./assets/imgs/liked-songs-300.jpg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Brani che ti piacciono
             </div>
           </div>
@@ -80,10 +78,12 @@
               src="./assets/imgs/main/image-4.jpg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Piano and chill
             </div>
           </div>
@@ -94,10 +94,12 @@
               src="./assets/imgs/main/image-14.jpg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Palestra💪🏻💪🏻
             </div>
           </div>
@@ -108,10 +110,12 @@
               src="./assets/imgs/search/image-46.jpeg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Route 66
             </div>
           </div>
@@ -122,10 +126,12 @@
               src="./assets/imgs/main/image-10.jpg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Mykonos
             </div>
           </div>
@@ -136,10 +142,12 @@
               src="./assets/imgs/main/image-2.jpg"
               alt="liked songs"
               class="rounded-start-2 flex-shrink-0"
-              style="width: 40px; height: 40px; object-fit: cover" />
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
             <div
               class="ms-2 text-white text-truncate"
-              style="font-size: 0.75rem; max-width: calc(100% - 50px)">
+              style="font-size: 0.75rem; max-width: calc(100% - 50px)"
+            >
               Viaggio con i boys
             </div>
           </div>
@@ -173,7 +181,8 @@
             <a class="nav-link text-white mt-2" href="#"
               ><i
                 class="bi bi-heart-fill text-white-50 rounded-1 fw-bold"
-                id="fav"></i
+                id="fav"
+              ></i
               ><small class="ps-1= fs-5 fw-bold"
                 >Brani che ti piacciono</small
               ></a
@@ -181,13 +190,15 @@
             <a class="nav-link text-white mt-3" href="#"
               ><i
                 class="bi bi-bookmark-fill text-success rounded-1 fw-bold"
-                id="podcasts"></i
+                id="podcasts"
+              ></i
               ><small class="ps-1= fs-5 fw-bold">I tuoi episodi</small></a
             >
             <hr class="text-white" />
             <div
               class="titoli-playlist overflow-auto"
-              style="max-height: 100vh">
+              style="max-height: 100vh"
+            >
               <p class="text-white m-1 fs-6">Festa italiana 2022</p>
               <p class="text-white m-1 fs-6">Viaggio con i boys</p>
               <p class="text-white m-1 fs-6">Mykonos</p>
@@ -288,11 +299,13 @@
                     class="btn btn-secondary dropdown-toggle rounded-pill border-0"
                     type="button"
                     data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                    aria-expanded="false"
+                  >
                     <img
                       src="./assets/imgs/1.png"
                       alt="icon"
-                      style="width: 45px" />
+                      style="width: 45px"
+                    />
                     <span>Jason Ball</span>
                   </button>
                   <ul class="dropdown-menu bg-transparent border-0">
@@ -316,7 +329,8 @@
                     id="random-img"
                     src="https://placehold.co/400"
                     alt=""
-                    class="mt-2 rounded-2 img-fluid" />
+                    class="mt-2 rounded-2 img-fluid"
+                  />
                 </div>
                 <div class="col-7">
                   <p class="text-white fw-bold album">ALBUM</p>
@@ -328,12 +342,14 @@
                   <div class="d-flex gap-3">
                     <button
                       id="playPlayer"
-                      class="btn fw-bold text-black px-4 py-2 mt-3 rounded-pill bg-success">
+                      class="btn fw-bold text-black px-4 py-2 mt-3 rounded-pill bg-success"
+                    >
                       Play
                     </button>
                     <button
                       id="iconHeart"
-                      class="btn fw-bold text-white px-4 py-2 mt-3 rounded-pill border-1 border-white">
+                      class="btn fw-bold text-white px-4 py-2 mt-3 rounded-pill border-1 border-white"
+                    >
                       Salva
                     </button>
                   </div>
@@ -341,7 +357,8 @@
                 <div class="col-2">
                   <button
                     class="bg-transparent border-0 text-white-50"
-                    id="hide-button">
+                    id="hide-button"
+                  >
                     NASCONDI ANNUNCI
                   </button>
                 </div>
@@ -353,13 +370,15 @@
             <div class="row ms-1 gap-4 d-none d-lg-flex mx-lg-4 mx-md-5">
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/liked-songs-300.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Brani che ti piacciono</h5>
@@ -367,13 +386,15 @@
               </div>
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/main/image-4.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Piano and chill</h5>
@@ -381,13 +402,15 @@
               </div>
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/main/image-14.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Palestra💪🏻💪🏻</h5>
@@ -397,13 +420,15 @@
             <div class="row ms-1 mt-2 gap-4 d-none d-lg-flex mx-lg-4 mx-md-5">
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/search/image-46.jpeg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Route 66</h5>
@@ -411,13 +436,15 @@
               </div>
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/main/image-10.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Mykonos</h5>
@@ -425,13 +452,15 @@
               </div>
               <div
                 class="col-lg-3 flex-fill rounded d-flex align-items-center pe-2 ps-0 mt-2"
-                id="playlistCol">
+                id="playlistCol"
+              >
                 <div>
                   <img
                     src="./assets/imgs/main/image-2.jpg"
                     alt="liked songs"
                     width="70"
-                    class="rounded-start-2" />
+                    class="rounded-start-2"
+                  />
                 </div>
                 <div class="text-white">
                   <h5 class="mb-0 fs-6 fw-bold ps-2">Viaggio con i boys</h5>
@@ -443,14 +472,16 @@
             </h3>
             <div
               class="row gap-4 d-none d-lg-block mx-lg-4 mx-md-5"
-              id="albumCard">
+              id="albumCard"
+            >
               <!-- QUI VANNO LE CARD DEGLI ALBUM -->
             </div>
           </div>
           <div class="col-2 d-none d-lg-block min-vh-100 p-0">
             <div class="bg-black text-white p-3 rounded-start h-100">
               <div
-                class="d-flex justify-content-between align-items-center mb-3">
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
                 <h6 class="fw-bold mb-0">Attività amici</h6>
                 <div>
                   <i class="bi bi-person-plus me-2"></i>
@@ -506,7 +537,8 @@
                   <img
                     src="./assets/imgs/main/image-18.jpg"
                     alt="Copertina playlist"
-                    class="img-fluid rounded-2" />
+                    class="img-fluid rounded-2"
+                  />
                 </div>
                 <div class="col-7 d-flex flex-column justify-content-center">
                   <p class="text-white-50 mb-1">Playlist</p>
@@ -538,7 +570,8 @@
                   <img
                     src="./assets/imgs/main/image-18.jpg"
                     alt="Copertina playlist"
-                    class="img-fluid rounded-2" />
+                    class="img-fluid rounded-2"
+                  />
                 </div>
                 <div class="col-7 d-flex flex-column justify-content-center">
                   <p class="text-white-50 mb-1">Playlist</p>
@@ -570,7 +603,8 @@
                   <img
                     src="./assets/imgs/main/image-18.jpg"
                     alt="Copertina playlist"
-                    class="img-fluid rounded-2" />
+                    class="img-fluid rounded-2"
+                  />
                 </div>
                 <div class="col-7 d-flex flex-column justify-content-center">
                   <p class="text-white-50 mb-1">Playlist</p>
@@ -600,83 +634,54 @@
     </main>
     <footer>
       <!-- PLAYER -->
-      <!-- Bottone per mostrare/nascondere il player -->
-      <button id="playPlayer" class="btn btn-primary m-3">
-        Play Random Track
-      </button>
-
-      <!-- Player Bootstrap (inizialmente nascosto) -->
-      <div
-        id="player-container"
-        class="d-flex align-items-center justify-content-between p-3 bg-dark text-white"
-        style="
-          display: none;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          z-index: 1050;
-        ">
-        <img
-          id="player-cover"
-          src=""
-          alt="cover"
-          style="
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 5px;
-          " />
-        <div class="mx-3 flex-grow-1">
-          <div id="player-title" style="font-weight: 600">Titolo traccia</div>
-          <div id="player-artist" style="font-size: 0.9em; color: #bbb">
-            Artista
+      <div id="media-player" class="music-player">
+        <div class="player-info">
+          <img id="current-album-cover" src="#" alt="Copertina Album" />
+          <div class="track-details">
+            <div id="track-title">Nessun brano in riproduzione</div>
+            <div id="current-artist" class="artist-name">
+              Artista sconosciuto
+            </div>
           </div>
         </div>
 
-        <audio id="player-audio" preload="none"></audio>
-
-        <div class="d-flex align-items-center gap-2">
-          <button id="player-play-pause" class="btn btn-sm btn-outline-light">
+        <div class="player-controls-top">
+          <button id="prev-btn" title="Precedente">
+            <i class="fas fa-backward"></i>
+          </button>
+          <button id="play-pause-btn" title="Play/Pausa">
             <i class="fas fa-play"></i>
           </button>
-          <button id="player-stop" class="btn btn-sm btn-outline-light">
-            <i class="fas fa-stop"></i>
+          <button id="next-btn" title="Successivo">
+            <i class="fas fa-forward"></i>
           </button>
-          <input
-            id="player-volume"
-            type="range"
-            min="0"
-            max="1"
-            step="0.01"
-            value="1" />
-          <div
-            class="d-flex align-items-center gap-2 ms-3"
-            style="width: 250px">
-            <span id="current-time" style="width: 40px; font-size: 0.8em"
-              >0:00</span
-            >
-            <input
-              type="range"
-              id="progress-bar"
-              value="0"
-              min="0"
-              step="1"
-              class="form-range flex-grow-1" />
-            <span id="duration" style="width: 40px; font-size: 0.8em"
-              >0:30</span
-            >
-          </div>
+          <button id="shuffle-btn" title="Shuffle">
+            <i class="fas fa-random"></i>
+          </button>
+          <button id="repeat-btn" title="Ripeti">
+            <i class="fas fa-redo"></i>
+          </button>
         </div>
+
+        <div class="player-progress">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress-bar" value="0" min="0" max="100" />
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="player-volume-controls">
+          <button id="mute-btn" title="Mute">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <input type="range" id="volume-bar" value="100" min="0" max="100" />
+        </div>
+
+        <audio id="audio-source" src=""></audio>
       </div>
 
-      <!-- FontAwesome CDN per icone -->
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
       <nav
-        class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4">
+        class="navbar navbar-dark bg-black fixed-bottom d-lg-none bg-opacity-75 p-4"
+      >
         <div class="container-fluid justify-content-around">
           <a class="nav-link text-center text-white" href="#"
             ><i class="bi bi-house-door"></i><br /><small>Home</small></a
@@ -706,7 +711,9 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./script/home.js"></script>
+    <script type="module" src="/script/player.js"></script>
   </body>
 </html>
