@@ -1,28 +1,32 @@
 import { callTheTower } from "./callTheTower.js";
+import { loadTrack } from "./player.js";
 
-const input = document.getElementById("searchBar");
-const searchNav = document.getElementById("searchNav");
-const btnSearch = document.getElementById("btnSearch");
-const searchForm = document.getElementById("searchForm");
+const input = document.getElementById("search-input");
+const btnSearch = document.getElementById("search-button");
 const iconHeart = document.getElementById("iconHeart");
 
 btnSearch.addEventListener("click", () => {
-  searchNav.classList.toggle("d-none");
-});
-
-//questo serve per cercare, chiamare API e recuperare id per spostarlo su Artist html
-const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
-const query = "search?q=";
-let id = "";
-searchForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  if (!input.value) return;
   callTheTower(endpointFisso, query, input.value).then((data) => {
+    if (!data || !data.data || data.data.length === 0) return;
     id = data.data[0].artist.id;
 
     //implementa primi risutati
     cerca(id);
   });
 });
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    btnSearch.click();
+  }
+});
+
+//questo serve per cercare, chiamare API e recuperare id per spostarlo su Artist html
+const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
+const query = "search?q=";
+let id = "";
 
 //funzione Vai a Cercati
 const cerca = function (id) {
@@ -47,13 +51,34 @@ btnAvanti.addEventListener("click", () => {
   num += 1;
   iconHeart.classList.remove("bg-success");
   ennesimaFunzione();
+
+  if (typeof goToNextOrPreviousTrack === "function") {
+    goToNextOrPreviousTrack(1);
+  }
+
+  updateCarouselImage(num);
 });
 const btnIndietro = document.getElementById("indietro");
 btnIndietro.addEventListener("click", () => {
   num -= 1;
   iconHeart.classList.remove("bg-success");
   ennesimaFunzione();
+
+  if (typeof goToNextOrPreviousTrack === "function") {
+    goToNextOrPreviousTrack(-1);
+  }
+
+  updateCarouselImage(num);
 });
+
+function updateCarouselImage(index) {
+  const randomImg = document.getElementById("random-img");
+  if (randomImg && Array.isArray(currentPlaylist) && currentPlaylist[index]) {
+    randomImg.setAttribute("src", currentPlaylist[index].album.cover_small);
+  }
+}
+
+let currentPlaylist = [];
 
 //  click Salva
 const clickCuore = () => {
@@ -84,6 +109,8 @@ const clickCuore = () => {
   localStorage.setItem("preferitiAlbum", JSON.stringify(preferitiAlbum));
 };
 
+import { onTrackChange } from "./player.js";
+
 const ennesimaFunzione = () => {
   callTheTower(endpointFisso, query, randomId).then((data) => {
     // popola html
@@ -103,101 +130,58 @@ const ennesimaFunzione = () => {
     //Salva PER AGG ad ArrayPrefe -> salva in local storage
     iconHeart.removeEventListener("click", clickCuore);
     iconHeart.addEventListener("click", clickCuore);
+
+    if (typeof setPlaylist === "function") {
+      const playlist = data.data.map((track) => ({
+        title: track.title_short,
+        src: track.preview,
+        album: { cover_small: track.album.cover_small },
+        artist: {
+          name: track.artist.name,
+          picture_small: track.artist.picture_small,
+        },
+      }));
+      setPlaylist(playlist);
+    }
+
+    const playButton = document.getElementById("playPlayer");
+    playButton.onclick = () => {
+      const track = {
+        title: data.data[num].title_short,
+        src: data.data[num].preview,
+        album: { cover_small: data.data[num].album.cover_small },
+        artist: {
+          name: data.data[num].artist.name,
+          picture_small: data.data[num].artist.picture_small,
+        },
+      };
+      if (typeof loadTrack === "function") {
+        loadTrack(track, num, true);
+      } else {
+        console.error("loadTrack function is not available.");
+      }
+    };
+
+    randomSong.onclick = () => {
+      const track = {
+        title: data.data[num].title_short,
+        src: data.data[num].preview,
+        album: { cover_small: data.data[num].album.cover_small },
+        artist: {
+          name: data.data[num].artist.name,
+          picture_small: data.data[num].artist.picture_small,
+        },
+      };
+      if (typeof loadTrack === "function") {
+        loadTrack(track, num, true);
+      } else {
+        console.error("loadTrack function is not available.");
+      }
+    };
   });
 };
 
 ennesimaFunzione();
-
-// PLAYER
-const btnPlayPlayer = document.getElementById("playPlayer");
-const playerContainer = document.getElementById("player-container");
-const playerCover = document.getElementById("player-cover");
-const playerTitle = document.getElementById("player-title");
-const playerArtist = document.getElementById("player-artist");
-const playerAudio = document.getElementById("player-audio");
-const playerPlayPause = document.getElementById("player-play-pause");
-const btnStop = document.getElementById("player-stop");
-const volumeSlider = document.getElementById("player-volume");
-const progressBar = document.getElementById("progress-bar");
-const currentTimeDisplay = document.getElementById("current-time");
-const durationDisplay = document.getElementById("duration");
-
-function formatTime(seconds) {
-  const min = Math.floor(seconds / 60);
-  const sec = Math.floor(seconds % 60);
-  return `${min}:${sec < 10 ? "0" : ""}${sec}`;
-}
-
-// Volume iniziale
-playerAudio.volume = volumeSlider.value;
-
-btnPlayPlayer.addEventListener("click", () => {
-  callTheTower(endpointFisso, query, randomId).then((data) => {
-    if (!data || !data.data || data.data.length === 0) return;
-    const track = data.data[num];
-
-    playerCover.src = track.album.cover_small || "";
-    playerTitle.innerText = track.title_short || "Titolo sconosciuto";
-    playerArtist.innerText = track.artist.name || "Artista sconosciuto";
-    playerAudio.src = track.preview || "";
-
-    playerContainer.style.display = "flex";
-    playerAudio.play();
-    playerPlayPause.innerHTML = '<i class="fas fa-pause"></i>';
-  });
-});
-
-playerPlayPause.addEventListener("click", () => {
-  if (playerAudio.paused) {
-    playerAudio.play();
-    playerPlayPause.innerHTML = '<i class="fas fa-pause"></i>';
-  } else {
-    playerAudio.pause();
-    playerPlayPause.innerHTML = '<i class="fas fa-play"></i>';
-  }
-});
-
-btnStop.addEventListener("click", () => {
-  playerAudio.pause();
-  playerAudio.currentTime = 0;
-  playerPlayPause.innerHTML = '<i class="fas fa-play"></i>';
-});
-
-volumeSlider.addEventListener("input", () => {
-  playerAudio.volume = volumeSlider.value;
-});
-
-playerAudio.addEventListener("ended", () => {
-  playerPlayPause.innerHTML = '<i class="fas fa-play"></i>';
-});
-// Imposta la durata
-playerAudio.addEventListener("loadedmetadata", () => {
-  progressBar.max = Math.floor(playerAudio.duration);
-  durationDisplay.innerText = formatTime(playerAudio.duration);
-  currentTimeDisplay.innerText = "0:00";
-});
-
-// Aggiorna progress bar
-playerAudio.addEventListener("timeupdate", () => {
-  if (!progressBar.dataset.dragging) {
-    progressBar.value = Math.floor(playerAudio.currentTime);
-    currentTimeDisplay.innerText = formatTime(playerAudio.currentTime);
-  }
-});
-
-//  seek
-progressBar.addEventListener("input", () => {
-  progressBar.dataset.dragging = "true";
-});
-
-progressBar.addEventListener("change", () => {
-  playerAudio.currentTime = progressBar.value;
-  progressBar.dataset.dragging = "";
-});
-
-// FINE PLAYER
-
-//data.data[0].link sarebbe il link alla traccia
 
 //album
 const id1 = "212369";
