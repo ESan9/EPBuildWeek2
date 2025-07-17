@@ -416,3 +416,17 @@ loadTrack = function (trackObject, newIndex, playImmediately = false) {
 };
 
 document.addEventListener("DOMContentLoaded", initializePlayer);
+// Add click event listener to the artist name element to make it clickable
+if (DOM.currentArtistSpan) {
+  DOM.currentArtistSpan.style.cursor = "pointer";
+  DOM.currentArtistSpan.addEventListener("click", () => {
+    const artistName = DOM.currentArtistSpan.textContent;
+    if (artistName && artistName !== "Artista sconosciuto") {
+      // Navigate to artist page or perform desired action
+      // For example, navigate to artist.html with query param or hash
+      window.location.href = `artist.html?name=${encodeURIComponent(
+        artistName
+      )}`;
+    }
+  });
+}
