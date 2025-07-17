@@ -105,7 +105,7 @@ callTheTower(endpointFisso, query, id).then((data) => {
 
         card.innerHTML = `
           <img
-            src="${album.cover_medium}"
+            src="${album.cover_xl}"
             alt="${album.title}"
             class="rounded w-50 mb-2"
           />
