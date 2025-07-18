@@ -23,6 +23,60 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
+// dropdown tempo reale
+const searchResultsContainer = document.getElementById("search-results");
+
+input.addEventListener("input", () => {
+  const searchTerm = input.value.trim();
+  if (searchTerm.length === 0) {
+    searchResultsContainer.innerHTML = "";
+    searchResultsContainer.style.display = "none";
+    return;
+  }
+
+  callTheTower(endpointFisso, query, searchTerm).then((data) => {
+    if (!data || !data.data || data.data.length === 0) {
+      searchResultsContainer.innerHTML =
+        "<div class='dropdown-item'>Nessun risultato</div>";
+      searchResultsContainer.style.display = "block";
+      return;
+    }
+
+    const itemsHtml = data.data
+      .map(
+        (item) => `
+      <div class="dropdown-item" data-artist-id="${item.artist.id}">
+        ${item.title_short} - ${item.artist.name}
+      </div>
+    `
+      )
+      .join("");
+
+    searchResultsContainer.innerHTML = itemsHtml;
+    searchResultsContainer.style.display = "block";
+
+    const dropdownItems =
+      searchResultsContainer.querySelectorAll(".dropdown-item");
+    dropdownItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const artistId = item.getAttribute("data-artist-id");
+        if (artistId) {
+          window.location.href = `./artist.html?eventId=${artistId}`;
+        }
+      });
+    });
+  });
+});
+
+document.addEventListener("click", (event) => {
+  if (
+    !searchResultsContainer.contains(event.target) &&
+    event.target !== input
+  ) {
+    searchResultsContainer.style.display = "none";
+  }
+});
+
 //questo serve per cercare, chiamare API e recuperare id per spostarlo su Artist html
 const endpointFisso = "https://striveschool-api.herokuapp.com/api/deezer/";
 const query = "search?q=";

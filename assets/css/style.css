@@ -160,6 +160,7 @@ a:hover {
 .bg-dark {
   background-color: #0e0e0e !important;
 }
+
 @media (min-width: 992px) {
   #playlistCol {
     background-color: #212121;
